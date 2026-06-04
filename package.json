@@ -1,0 +1,14 @@
+{
+  "name": "swayam-sanchay-archive",
+  "version": "1.0.0",
+  "description": "Swayam-Sanchay Personal Digital Identity & Learning Archive",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

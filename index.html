@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Elements -->
+  <title>Utkarsh Dubey &bull; Digital Identity & Learning Archive</title>
+  <meta name="description" content="Swayam-Sanchay: A personal digital identity platform, learning archive, and chronological timeline of backend systems exploration, observability, and operational growth by Utkarsh Dubey.">
+  <meta name="keywords" content="Utkarsh Dubey, digital archive, observability, backend developer, FastAPI, Python, MongoDB, systems reliability, operational drift">
+  <meta name="author" content="Utkarsh Dubey">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Background Canvas and Noise texture layers -->
+  <canvas id="canvas-mesh" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: auto;"></canvas>
+  <div class="noise-overlay"></div>
+
+  <!-- 1. Floating Navigation Capsule Header -->
+  <nav class="nav-container">
+    <div class="nav-dock">
+      <div class="nav-identity">
+        <span class="nav-pulse"></span>
+        <span>UTKARSH_DUBEY</span>
+      </div>
+      <ul class="nav-links">
+        <li><a class="nav-link active" data-scroll="hero">Archive</a></li>
+        <li><a class="nav-link" data-scroll="about">Philosophy</a></li>
+        <li><a class="nav-link" data-scroll="focus">Focus</a></li>
+        <li><a class="nav-link" data-scroll="projects">Builds</a></li>
+        <li><a class="nav-link" data-scroll="archive">Notebook</a></li>
+        <li><a class="nav-link" data-scroll="timeline">Journey</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 2. Hero Section -->
+  <header id="hero" class="section hero-wrapper">
+    <div class="container hero-content reveal">
+      <div style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.65rem;" class="floating-element">
+        <span class="tag" style="background: rgba(129, 140, 248, 0.08); border-color: rgba(129, 140, 248, 0.25); color: var(--accent-primary);">
+          &lt;active_focus&gt; Observing operational drift & backend systems &lt;/active_focus&gt;
+        </span>
+      </div>
+      
+      <h1 class="gradient-text-clip" style="margin-bottom: 1.5rem;">
+        Observing the silent behaviour of backend systems.
+      </h1>
+      
+      <p style="font-size: 1.15rem; max-width: 680px; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.7;">
+        Hi, I'm <strong>Utkarsh Dubey</strong>. This is a living digital archive of a curious developer continuously evolving through technology, experimentation, and reflection. I build backend runtimes and investigate how reliable-looking systems fail unpredictably in production.
+      </p>
+
+      <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+        <a href="#archive" class="project-btn" style="background: rgba(129, 140, 248, 0.1); border-color: rgba(129, 140, 248, 0.25); color: var(--text-primary); padding: 0.6rem 1.25rem;">
+          Read the Notebook
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <a href="#about" class="project-btn" style="padding: 0.6rem 1.25rem;">
+          Our Philosophy
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. About & Philosophy Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">The Swayam Philosophy</h2>
+      
+      <div class="philosophy-grid">
+        <div class="reveal reveal-delay-1" style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.8;">
+          <p style="margin-bottom: 1.25rem;">
+            Is a system truly healthy simply because it appears stable and does not scream through logs or visible failures? Most engineering platforms highlight trophies. I choose to look at the shadows—observing <strong>operational drift</strong> and the hidden dynamics of components which appear reliable on the surface, yet fail under real-world conditions.
+          </p>
+          <p>
+            I believe coding fundamentally tests problem understanding rather than syntax retention. Syntax is always references and tokens, but observing operational coordinates, diagnosing structural root-causes, and making resilient backend decisions is what defines actual software craftsmanship.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <blockquote class="philosophy-quote">
+            "Green indicators represent an absence of known failures, not a presence of true reliability. The true craft of computing is understanding what happens when a system is silent."
+            <div class="philosophy-author">Utkarsh Dubey &bull; 2026</div>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Current Focus Section -->
+  <section id="focus" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Current Focus Areas</h2>
+      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">Structural layers and operational limits I am actively exploring.</p>
+      
+      <div class="focus-grid">
+        <!-- Focus 1 -->
+        <div class="glass-card accent-card reveal reveal-delay-1">
+          <div class="glass-card-content">
+            <div style="color: var(--accent-tertiary); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Backend Systems</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary);">
+              Designing high-performance APIs, coordinating authentication flows, and modeling database query paths in Python, FastAPI, and MongoDB Atlas.
+            </p>
+            <div class="tag-container">
+              <span class="tag">#fastapi</span>
+              <span class="tag">#python</span>
+              <span class="tag">#mongodb</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Focus 2 -->
+        <div class="glass-card accent-card reveal reveal-delay-2">
+          <div class="glass-card-content">
+            <div style="color: var(--accent-primary); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Observability & Tracing</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary);">
+              Mapping request lifecycles, structured application logging, tracing request states, and identifying gaps between functional outputs and actual internal health.
+            </p>
+            <div class="tag-container">
+              <span class="tag">#logging</span>
+              <span class="tag">#tracing</span>
+              <span class="tag">#telemetry</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Focus 3 -->
+        <div class="glass-card accent-card reveal reveal-delay-3">
+          <div class="glass-card-content">
+            <div style="color: var(--accent-secondary); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Infrastructure Dynamics</h3>
+            <p style="font-size: 0.92rem; color: var(--text-secondary);">
+              Analyzing container sleep patterns on free deployment tiers, connection pooling lifecycles, timeouts, and state mismatches in Vercel and Render environments.
+            </p>
+            <div class="tag-container">
+              <span class="tag">#cloud-tiers</span>
+              <span class="tag">#timeouts</span>
+              <span class="tag">#deployments</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Projects / Active Builds Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Operational Case Studies</h2>
+      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">A record of backend platforms built to solve problems while discovering how systems silently degrade.</p>
+      
+      <div class="projects-grid">
+        <!-- Project 1: AlumConnect -->
+        <article class="glass-card reveal reveal-delay-1">
+          <div class="glass-card-content">
+            <div class="project-header">
+              <h3 style="font-size: 1.25rem;">AlumConnect</h3>
+              <span class="project-status status-active-pill">
+                <span class="status-dot"></span>
+                Complete
+              </span>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              An alumni networking and mentorship platform. Designed to handle deep session state, API pipelines, JWT authorization, and MongoDB clustering.
+            </p>
+            <div class="tag-container">
+              <span class="tag">react</span>
+              <span class="tag">fastapi</span>
+              <span class="tag">mongodb-atlas</span>
+              <span class="tag">render</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iuttkarshh0409" target="_blank" class="project-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+                Inspect
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Swayam-Sanchay -->
+        <article class="glass-card reveal reveal-delay-2">
+          <div class="glass-card-content">
+            <div class="project-header">
+              <h3 style="font-size: 1.25rem;">Swayam-Sanchay</h3>
+              <span class="project-status status-active-pill">
+                <span class="status-dot"></span>
+                Active
+              </span>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              This digital archive. Built intentionally using pure vanilla HTML, CSS variables, and zero heavy abstraction frameworks to ensure ultimate transparency and visibility.
+            </p>
+            <div class="tag-container">
+              <span class="tag">vanilla-js</span>
+              <span class="tag">css-variables</span>
+              <span class="tag">canvas-api</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iuttkarshh0409" target="_blank" class="project-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+                Source
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Notebook / Learning Archive Section -->
+  <section id="archive" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">The Learning Notebook</h2>
+      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Observations, infrastructure analyses, and quick reflections on why simple systems succeed.</p>
+      
+      <div class="archive-layout">
+        <!-- Sidebar filters -->
+        <aside class="archive-sidebar reveal reveal-left">
+          <div class="search-wrapper">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="archive-search" class="search-input" placeholder="Search archive notes...">
+          </div>
+          
+          <div style="margin-top: 0.5rem;">
+            <p style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.05em;">Notebook Categories</p>
+            <div id="filter-tabs" class="filter-tabs">
+              <!-- JS dynamically generates category pills here -->
+            </div>
+          </div>
+        </aside>
+
+        <!-- Dynamic Notes List Container -->
+        <main id="notes-container" class="notes-container reveal">
+          <!-- JS dynamically injects note components here -->
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Journey Timeline Section -->
+  <section id="timeline" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Chronological Growth Logs</h2>
+      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 3.5rem;">The trajectory of my learning process. Click headers to expand technical logs.</p>
+      
+      <div class="timeline-path">
+        <!-- Milestone 4 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-indicator"></div>
+          <div class="timeline-date">May 2026</div>
+          <h3 class="timeline-title">Compiled Swayam-Sanchay</h3>
+          <p class="timeline-details">Built this digital learning archive to document operational details, tracing processes, and failures.</p>
+          
+          <!-- Expandable failures and learnings log -->
+          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
+            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/swayam-concept.md]</p>
+            <p style="margin-bottom: 0.5rem;"><strong>The Concept:</strong> Designed to prove that web architectures can remain highly responsive and aesthetically pleasing using zero external framework compilation stages.</p>
+            <p><strong>Result:</strong> Fully static, SEO-friendly site that loads in milliseconds, proving that direct vanilla implementations yield maximum diagnostic clarity.</p>
+          </div>
+          
+          <div class="timeline-tags">
+            <span class="timeline-tag">Observability</span>
+            <span class="timeline-tag">Vanilla JS</span>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-indicator"></div>
+          <div class="timeline-date">Late 2025</div>
+          <h3 class="timeline-title">Pivoted to Backend Dynamics & Observability</h3>
+          <p class="timeline-details">Shifted focus from simply achieving feature completion toward identifying structural gaps and silent state drift.</p>
+          
+          <!-- Expandable failures and learnings log -->
+          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
+            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/observability-shift.md]</p>
+            <p style="margin-bottom: 0.5rem;"><strong>The Pivot:</strong> Realized that many systems continue appearing healthy through green status badges while containing fragile dependencies underneath.</p>
+            <p><strong>Action:</strong> Began researching request tracing, authentication timeout bounds, and connection pool dynamics to verify if operations actually match design maps.</p>
+          </div>
+          
+          <div class="timeline-tags">
+            <span class="timeline-tag">Observability</span>
+            <span class="timeline-tag">Timeout Mapping</span>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-indicator"></div>
+          <div class="timeline-date">May 2025</div>
+          <h3 class="timeline-title">Built and Deployed AlumConnect</h3>
+          <p class="timeline-details">Developed a full-stack mentorship engine on Vercel and Render, running FastAPI with MongoDB Atlas.</p>
+          
+          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
+            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/alumconnect-diagnostics.md]</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Operational Discoveries:</strong> Experienced cold-start sleep cycles on Render's free tier. First request triggered timeouts in FastAPI container bootstrap, failing the MongoDB Atlas initial handshake.</p>
+            <p><strong>Resolution:</strong> Wrote custom exponential backoff connect retries. Learned that backend reliability is highly dependent on cloud infrastructure limits.</p>
+          </div>
+
+          <div class="timeline-tags">
+            <span class="timeline-tag">FastAPI</span>
+            <span class="timeline-tag">MongoDB Atlas</span>
+            <span class="timeline-tag">Cold Starts</span>
+          </div>
+        </div>
+
+        <!-- Milestone 1 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-indicator"></div>
+          <div class="timeline-date">Jan 2024</div>
+          <h3 class="timeline-title">Began Programming Runtimes</h3>
+          <p class="timeline-details">Started exploring programming with basic application constructs, writing functional code, and focusing on visible outputs.</p>
+          
+          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
+            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/early-runtimes.md]</p>
+            <p style="margin-bottom: 0.5rem;"><strong>Starting Point:</strong> Focused on syntax retention and making features work visually. Believed a running program with green compile logs was the final goal.</p>
+            <p><strong>Lessons:</strong> Understood that functional success is only the top layer of actual software craftsmanship.</p>
+          </div>
+
+          <div class="timeline-tags">
+            <span class="timeline-tag">Syntax Foundations</span>
+            <span class="timeline-tag">Logic Blocks</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Digital Presence Connectors Section -->
+  <section id="connectors" class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Digital Connectors</h2>
+      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Discover my work, academic index, and digital presence coordinates.</p>
+      
+      <div class="connectors-grid reveal">
+        <!-- GitHub -->
+        <a href="https://github.com/iuttkarshh0409" target="_blank" class="connector-card reveal-delay-1" data-brand="github">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">GitHub</span>
+            <span class="connector-handle">iuttkarshh0409</span>
+          </div>
+        </a>
+
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" class="connector-card reveal-delay-2" data-brand="linkedin">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">LinkedIn</span>
+            <span class="connector-handle">utkarsh-dubey</span>
+          </div>
+        </a>
+
+        <!-- Medium -->
+        <a href="https://medium.com/@dubeutkarsh7" target="_blank" class="connector-card reveal-delay-3" data-brand="medium">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">Medium Journal</span>
+            <span class="connector-handle">@dubeutkarsh7</span>
+          </div>
+        </a>
+
+        <!-- Google Scholar -->
+        <a href="https://scholar.google.com/citations?user=3VDh88UAAAAJ&hl=en" target="_blank" class="connector-card reveal-delay-4" data-brand="scholar">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">Google Scholar</span>
+            <span class="connector-handle">Publications index</span>
+          </div>
+        </a>
+
+        <!-- ORCID ID -->
+        <a href="https://orcid.org/0009-0006-3133-227X" target="_blank" class="connector-card reveal-delay-5" data-brand="orcid">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 8v8M11 8h1.5a2.5 2.5 0 0 1 0 5H11M11 13h2.5a2.5 2.5 0 0 1 0 5H11"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">ORCID ID</span>
+            <span class="connector-handle">0009-0006-3133-227X</span>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/utkarsh.in.real/" target="_blank" class="connector-card reveal-delay-6" data-brand="instagram">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">Instagram</span>
+            <span class="connector-handle">@utkarsh.in.real</span>
+          </div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:dubeyutkarsh101@gmail.com" class="connector-card reveal-delay-7" data-brand="email">
+          <div class="connector-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="connector-info">
+            <span class="connector-name">Direct Mail</span>
+            <span class="connector-handle">dubeyutkarsh101@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Dynamic System Footer -->
+  <footer class="footer-wrap">
+    <div class="container footer-content">
+      <div class="footer-meta" id="terminal-clock">
+        [SYS LOG: syncing local clock...]
+      </div>
+      <div class="footer-meta" style="color: var(--text-secondary);">
+        Swayam-Sanchay &bull; Engineered with Pure CSS, HTML5, & Vanilla Javascript &bull; &copy; 2026
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript modules -->
+  <script src="js/canvas-bg.js"></script>
+  <script src="js/archive.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

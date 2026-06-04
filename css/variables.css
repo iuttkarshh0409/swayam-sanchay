@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+:root {
+  /* Core Theme Colors */
+  --bg-base: #070709;
+  --bg-surface: #0e0f13;
+  --bg-surface-elevated: #15171d;
+  
+  /* Text Colors */
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  /* Accent Colors */
+  --accent-primary: #818cf8;       /* Indigo Glow */
+  --accent-primary-rgb: 129, 140, 248;
+  --accent-secondary: #a78bfa;     /* Violet Glow */
+  --accent-secondary-rgb: 167, 139, 250;
+  --accent-tertiary: #2dd4bf;      /* Mint Teal */
+  --accent-tertiary-rgb: 45, 212, 191;
+  --accent-cyan: #38bdf8;          /* Tech Cyan */
+  
+  /* Status Colors */
+  --status-active: #34d399;        /* Emerald */
+  --status-active-rgb: 52, 211, 153;
+  --status-experimental: #fbbf24;  /* Amber */
+  --status-experimental-rgb: 251, 191, 36;
+  --status-archived: #9ca3af;      /* Gray */
+  --status-archived-rgb: 156, 163, 175;
+
+  /* Glassmorphism Specs */
+  --glass-bg: rgba(14, 15, 20, 0.6);
+  --glass-bg-hover: rgba(21, 23, 29, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-border-hover: rgba(255, 255, 255, 0.12);
+  --glass-shadow: rgba(0, 0, 0, 0.4);
+  --glass-blur: 16px;
+  
+  /* Gradients */
+  --gradient-cyber: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  --gradient-text: linear-gradient(to right, #ffffff, #c7d2fe, #e9d5ff);
+  --gradient-dark-glow: radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
+  
+  /* Font Families */
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+  
+  /* Layout Controls */
+  --max-width: 1100px;
+  --nav-height: 70px;
+  --card-radius: 14px;
+  --button-radius: 8px;
+  
+  /* Transitions */
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}

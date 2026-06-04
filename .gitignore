@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+.DS_Store
+dist/
+dist-ssr/
+*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

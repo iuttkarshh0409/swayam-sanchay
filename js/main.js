@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveals();
   initNavigationSync();
   initSystemClock();
+  initFeaturedWritingLinks();
 });
 
 /**
@@ -114,4 +115,19 @@ function initSystemClock() {
   
   updateClock();
   setInterval(updateClock, 1000);
+}
+
+/**
+ * 5. Featured Writing Cross-Linking
+ * Directs button clicks in the Featured Writing section to expand corresponding full Notebook entries.
+ */
+function initFeaturedWritingLinks() {
+  document.addEventListener("click", (e) => {
+    const featuredBtn = e.target.closest("[data-featured-note-id]");
+    if (featuredBtn && window.archive) {
+      e.preventDefault();
+      const noteId = parseInt(featuredBtn.getAttribute("data-featured-note-id"), 10);
+      window.archive.openNote(noteId);
+    }
+  });
 }

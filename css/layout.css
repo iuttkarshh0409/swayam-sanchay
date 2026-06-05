@@ -149,6 +149,13 @@
   margin-top: 1.5rem;
 }
 
+.writing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
 /* --- Split Panel Layout for Notebook (Archive) --- */
 .archive-layout {
   display: grid;

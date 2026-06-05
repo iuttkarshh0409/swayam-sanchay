@@ -429,6 +429,26 @@ class ArchiveController {
       });
     });
   }
+
+  openNote(id) {
+    // 1. Reset category filter to ALL so the note is visible
+    this.activeCategory = "ALL";
+    this.renderTabs();
+    this.renderNotes();
+    
+    // 2. Find the card element
+    const card = this.notesContainer.querySelector(`.note-card[data-note-id="${id}"]`);
+    if (card) {
+      // Collapse all others
+      this.notesContainer.querySelectorAll(".note-card").forEach(c => {
+        c.classList.remove("expanded");
+      });
+      // Expand this one
+      card.classList.add("expanded");
+      // Scroll to it
+      card.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }
 }
 
 // Initialise on load

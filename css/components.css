@@ -6,7 +6,6 @@
   border: 1px solid var(--glass-border);
   border-radius: var(--card-radius);
   padding: 1.75rem;
-  box-shadow: 0 10px 30px var(--glass-shadow);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   transition: var(--transition-smooth);
@@ -24,7 +23,7 @@
   height: 100%;
   background: radial-gradient(
     600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.02),
     transparent 40%
   );
   z-index: 1;
@@ -35,9 +34,7 @@
 
 .glass-card:hover {
   border-color: var(--glass-border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
-              0 0 25px rgba(129, 140, 248, 0.04);
+  background: var(--glass-bg-hover);
 }
 
 .glass-card:hover::before {
@@ -47,23 +44,49 @@
 .glass-card-content {
   position: relative;
   z-index: 2;
+  height: 100%;
 }
 
-/* --- Interactive Spotlight Accent Grid Glow (Linear/Raycast vibe) --- */
-.accent-card {
-  border: 1px solid rgba(129, 140, 248, 0.15);
+/* Bento Accent Highlights */
+.glass-card.accent-emerald {
+  border-color: rgba(16, 185, 129, 0.12);
 }
-.accent-card:hover {
-  border-color: rgba(129, 140, 248, 0.35);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55),
-              0 0 20px rgba(129, 140, 248, 0.1);
+.glass-card.accent-emerald:hover {
+  border-color: rgba(16, 185, 129, 0.35);
 }
-
-.accent-card::before {
+.glass-card.accent-emerald::before {
   background: radial-gradient(
     400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(129, 140, 248, 0.08),
-    transparent 40%
+    rgba(16, 185, 129, 0.06),
+    transparent 45%
+  );
+}
+
+.glass-card.accent-sky {
+  border-color: rgba(56, 189, 248, 0.12);
+}
+.glass-card.accent-sky:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+.glass-card.accent-sky::before {
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(56, 189, 248, 0.06),
+    transparent 45%
+  );
+}
+
+.glass-card.accent-amber {
+  border-color: rgba(251, 191, 36, 0.12);
+}
+.glass-card.accent-amber:hover {
+  border-color: rgba(251, 191, 36, 0.35);
+}
+.glass-card.accent-amber::before {
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(251, 191, 36, 0.06),
+    transparent 45%
   );
 }
 
@@ -579,25 +602,22 @@
   background: rgba(166, 206, 57, 0.1);
 }
 
-/* Instagram */
-.connector-card[data-brand="instagram"]:hover {
-  border-color: rgba(225, 48, 108, 0.4);
-  box-shadow: 0 10px 25px rgba(225, 48, 108, 0.08);
-}
-.connector-card[data-brand="instagram"]:hover .connector-icon {
-  color: #e1306c;
-  background: rgba(225, 48, 108, 0.1);
-}
+/* Brand Hover highlights updates - No drop shadows */
+.connector-card[data-brand="github"]:hover { border-color: rgba(161, 161, 170, 0.3); box-shadow: none; }
+.connector-card[data-brand="linkedin"]:hover { border-color: rgba(56, 189, 248, 0.3); box-shadow: none; }
+.connector-card[data-brand="medium"]:hover { border-color: rgba(16, 185, 129, 0.3); box-shadow: none; }
+.connector-card[data-brand="scholar"]:hover { border-color: rgba(56, 189, 248, 0.3); box-shadow: none; }
+.connector-card[data-brand="orcid"]:hover { border-color: rgba(163, 230, 53, 0.3); box-shadow: none; }
+.connector-card[data-brand="instagram"]:hover { border-color: rgba(244, 63, 94, 0.3); box-shadow: none; }
+.connector-card[data-brand="email"]:hover { border-color: rgba(251, 191, 36, 0.3); box-shadow: none; }
 
-/* Email */
-.connector-card[data-brand="email"]:hover {
-  border-color: rgba(129, 140, 248, 0.4);
-  box-shadow: 0 10px 25px rgba(129, 140, 248, 0.08);
-}
-.connector-card[data-brand="email"]:hover .connector-icon {
-  color: var(--accent-primary);
-  background: rgba(129, 140, 248, 0.1);
-}
+.connector-card[data-brand="github"]:hover .connector-icon { color: #fff; background: rgba(255, 255, 255, 0.05); }
+.connector-card[data-brand="linkedin"]:hover .connector-icon { color: #38bdf8; background: rgba(56, 189, 248, 0.05); }
+.connector-card[data-brand="medium"]:hover .connector-icon { color: #10b981; background: rgba(16, 185, 129, 0.05); }
+.connector-card[data-brand="scholar"]:hover .connector-icon { color: #38bdf8; background: rgba(56, 189, 248, 0.05); }
+.connector-card[data-brand="orcid"]:hover .connector-icon { color: #a6ce39; background: rgba(166, 206, 57, 0.05); }
+.connector-card[data-brand="instagram"]:hover .connector-icon { color: #f43f5e; background: rgba(244, 63, 94, 0.05); }
+.connector-card[data-brand="email"]:hover .connector-icon { color: #fbbf24; background: rgba(251, 191, 36, 0.05); }
 
 /* --- Philosophy / Reflection Blockquote styling --- */
 .philosophy-grid {
@@ -617,18 +637,138 @@
 .philosophy-quote {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.4;
   color: var(--text-primary);
   position: relative;
   padding-left: 2rem;
-  border-left: 2px solid var(--accent-secondary);
+  border-left: 2px solid var(--accent-emerald);
 }
 
 .philosophy-author {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--accent-secondary);
+  color: var(--accent-emerald);
   text-transform: uppercase;
   margin-top: 0.75rem;
+}
+
+/* --- Terminal Blocks --- */
+.terminal-block {
+  background: var(--bg-terminal);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--button-radius);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 5;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.terminal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+.terminal-dot.red { background: #ef4444; }
+.terminal-dot.yellow { background: #eab308; }
+.terminal-dot.green { background: #10b981; }
+
+.terminal-content {
+  padding: 1rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.terminal-prompt {
+  color: var(--accent-emerald);
+}
+
+.terminal-cmd {
+  color: var(--text-primary);
+}
+
+/* --- Stats Widget (CLI block style) --- */
+.stats-cli-block {
+  background: var(--bg-terminal);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--button-radius);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--accent-emerald);
+}
+
+.stats-cli-title {
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.stats-cli-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.stats-cli-key {
+  color: var(--text-secondary);
+}
+
+.stats-cli-val {
+  color: var(--accent-emerald);
+}
+
+/* Numbered bento counters */
+.bento-counter {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* UTC clock sync indicator */
+.clock-sync-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 6px var(--accent-emerald);
+  margin: 0 0.35rem;
+  animation: pulseLight 2s infinite;
+  vertical-align: middle;
 }

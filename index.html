@@ -23,13 +23,20 @@
   <canvas id="canvas-mesh" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: auto;"></canvas>
   <div class="noise-overlay"></div>
 
-  <!-- 1. Floating Navigation Capsule Header -->
+  <!-- Top Branding Bar -->
+  <div class="top-bar">
+    <div class="top-bar-identity">
+      <span class="top-bar-pulse"></span>
+      <span>UTKARSH_DUBEY</span>
+    </div>
+    <div class="top-bar-version">
+      SWAYAM_SANCHAY / v2.6
+    </div>
+  </div>
+
+  <!-- Floating Navigation Capsule -->
   <nav class="nav-container">
     <div class="nav-dock">
-      <div class="nav-identity">
-        <span class="nav-pulse"></span>
-        <span>UTKARSH_DUBEY</span>
-      </div>
       <ul class="nav-links">
         <li><a class="nav-link active" data-scroll="hero">Archive</a></li>
         <li><a class="nav-link" data-scroll="about">Philosophy</a></li>
@@ -40,6 +47,7 @@
         <li><a class="nav-link" data-scroll="archive">Notebook</a></li>
         <li><a class="nav-link" data-scroll="timeline">Journey</a></li>
         <li><a class="nav-link" data-scroll="education">Education</a></li>
+        <li><a class="nav-link" data-scroll="connectors">Connect</a></li>
       </ul>
     </div>
   </nav>
@@ -47,26 +55,42 @@
   <!-- 2. Hero Section -->
   <header id="hero" class="section hero-wrapper">
     <div class="container hero-content reveal">
-      <div style="margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 0.65rem;" class="floating-element">
-        <span class="tag" style="background: rgba(129, 140, 248, 0.08); border-color: rgba(129, 140, 248, 0.25); color: var(--accent-primary);">
-          &lt;active_focus&gt; Full-Stack Development &bull; Backend Engineering &bull; Cloud Deployments &lt;/active_focus&gt;
+      <div style="margin-bottom: 1.75rem; display: inline-flex; align-items: center;" class="floating-element">
+        <span class="tag" style="background: rgba(16, 185, 129, 0.06); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-emerald);">
+          <span class="clock-sync-dot"></span> &lt;active_focus&gt; Full-Stack Development &bull; Systems &bull; Cloud
         </span>
       </div>
       
-      <h1 class="gradient-text-clip" style="margin-bottom: 1.5rem;">
-        Building software and learning how systems behave in production.
+      <h1 style="margin-bottom: 2rem; font-weight: 300; font-family: var(--font-display); line-height: 1.15; font-size: clamp(2.2rem, 4.5vw, 3.8rem);">
+        Building software and learning how <span style="font-family: var(--font-mono); color: var(--accent-emerald);">systems behave_in_production</span><span class="terminal-caret" style="color: var(--accent-emerald); font-family: var(--font-mono); font-weight: 500;">_</span>
       </h1>
       
-      <p style="font-size: 1.15rem; max-width: 680px; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.7;">
-        Hi, I'm <strong>Utkarsh Dubey</strong>, an Integrated MCA student and full-stack developer interested in backend engineering, cloud deployments, and software reliability. This archive documents projects, experiments, research interests, and lessons learned while building real-world systems with FastAPI, MongoDB, React, Render, and Vercel.
-      </p>
+      <div class="terminal-block" style="margin-bottom: 2.5rem; max-width: 750px;">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+          </div>
+          <span>$ whoami --verbose</span>
+        </div>
+        <div class="terminal-content">
+          <p style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); margin: 0; line-height: 1.6; text-align: left;">
+            <span class="terminal-prompt">&gt;</span> <span class="terminal-cmd">identity:</span> Utkarsh Dubey<br>
+            <span class="terminal-prompt">&gt;</span> <span class="terminal-cmd">role:</span> Integrated MCA Student &amp; Systems Builder (2023 &mdash; 2028)<br>
+            <span class="terminal-prompt">&gt;</span> <span class="terminal-cmd">focus:</span> High-performance APIs, Observability &amp; Operational drift<br>
+            <span class="terminal-prompt">&gt;</span> <span class="terminal-cmd">runtimes:</span> Python, Java, Go (learning), Javascript, React, FastAPI, MongoDB Atlas<br>
+            <span class="terminal-prompt">&gt;</span> <span class="terminal-cmd">synopsis:</span> This archive documents projects, experiments, research interests, and lessons learned while building real-world systems.
+          </p>
+        </div>
+      </div>
 
       <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-        <a href="#archive" class="project-btn" style="background: rgba(129, 140, 248, 0.1); border-color: rgba(129, 140, 248, 0.25); color: var(--text-primary); padding: 0.6rem 1.25rem;">
+        <a href="#archive" class="project-btn" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--text-primary); padding: 0.6rem 1.25rem; font-family: var(--font-mono); font-size: 0.78rem;">
           Read the Notebook
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
         </a>
-        <a href="#about" class="project-btn" style="padding: 0.6rem 1.25rem;">
+        <a href="#about" class="project-btn" style="padding: 0.6rem 1.25rem; font-family: var(--font-mono); font-size: 0.78rem;">
           Our Philosophy
         </a>
       </div>
@@ -76,7 +100,10 @@
   <!-- 3. About & Philosophy Section -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title reveal">The Swayam Philosophy</h2>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 03 — philosophy</div>
+        <h2 class="section-title">The Swayam Philosophy</h2>
+      </div>
       
       <div class="reveal reveal-delay-1" style="font-size: 1.08rem; color: var(--text-secondary); line-height: 1.8; max-width: 800px;">
         <p style="margin-bottom: 1.25rem;">
@@ -92,17 +119,21 @@
   <!-- 4. Current Focus Section -->
   <section id="focus" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Current Focus Areas</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">Structural layers and operational limits I am actively exploring.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 04 — focus_areas</div>
+        <h2 class="section-title">Current Focus Areas</h2>
+        <p class="section-subtitle">Structural layers and operational limits I am actively exploring.</p>
+      </div>
       
       <div class="focus-grid">
         <!-- Focus 1 -->
-        <div class="glass-card accent-card reveal reveal-delay-1">
+        <div class="glass-card accent-emerald reveal reveal-delay-1">
+          <span class="bento-counter">01/03</span>
           <div class="glass-card-content">
-            <div style="color: var(--accent-tertiary); margin-bottom: 1rem;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <div style="color: var(--accent-emerald); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
             </div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Backend Engineering</h3>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; font-weight: 400;">Backend Engineering</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary);">
               Designing high-performance APIs, coordinating authentication flows, and modeling database query paths in Python, FastAPI, and MongoDB Atlas.
             </p>
@@ -115,12 +146,13 @@
         </div>
 
         <!-- Focus 2 -->
-        <div class="glass-card accent-card reveal reveal-delay-2">
+        <div class="glass-card accent-sky reveal reveal-delay-2">
+          <span class="bento-counter">02/03</span>
           <div class="glass-card-content">
-            <div style="color: var(--accent-primary); margin-bottom: 1rem;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/></svg>
+            <div style="color: var(--accent-sky); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/></svg>
             </div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">System Monitoring & Debugging</h3>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; font-weight: 400;">System Monitoring &amp; Debugging</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary);">
               Mapping request lifecycles, structured application logging, tracing request states, and identifying gaps between functional outputs and actual internal health.
             </p>
@@ -133,12 +165,13 @@
         </div>
 
         <!-- Focus 3 -->
-        <div class="glass-card accent-card reveal reveal-delay-3">
+        <div class="glass-card accent-amber reveal reveal-delay-3">
+          <span class="bento-counter">03/03</span>
           <div class="glass-card-content">
-            <div style="color: var(--accent-secondary); margin-bottom: 1rem;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div style="color: var(--accent-amber); margin-bottom: 1rem;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem;">Cloud Deployments & Reliability</h3>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; font-weight: 400;">Cloud Deployments &amp; Reliability</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary);">
               Analyzing container sleep patterns on free deployment tiers, connection pooling lifecycles, timeouts, and state mismatches in Vercel and Render environments.
             </p>
@@ -156,15 +189,18 @@
   <!-- 5. Skills Section -->
   <section id="skills" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Technical Skills</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">Core runtimes, environments, frameworks, and developer tools I work with.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 05 — tech_stack</div>
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Core runtimes, environments, frameworks, and developer tools I work with.</p>
+      </div>
 
       <div class="skills-grid">
         <!-- Languages -->
         <div class="glass-card reveal reveal-delay-1">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-primary); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               Languages
             </h3>
             <div class="tag-container" style="margin-top: 0; margin-bottom: 0.8rem;">
@@ -173,7 +209,7 @@
               <span class="tag">JavaScript</span>
             </div>
             <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.45rem;">
-              Learning: <span class="tag" style="padding: 0.15rem 0.45rem; font-size: 0.68rem; margin: 0;">Go</span>
+              Learning: <span class="tag" style="padding: 0.15rem 0.45rem; font-size: 0.68rem; margin: 0; display: inline-flex; align-items: center; gap: 0.35rem;"><span class="clock-sync-dot" style="margin: 0; background: var(--accent-amber); box-shadow: 0 0 6px var(--accent-amber);"></span>Go</span>
             </div>
           </div>
         </div>
@@ -181,8 +217,8 @@
         <!-- Frontend -->
         <div class="glass-card reveal reveal-delay-2">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-secondary); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-sky); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
               Frontend
             </h3>
             <div class="tag-container" style="margin-top: 0;">
@@ -195,8 +231,8 @@
         <!-- Backend -->
         <div class="glass-card reveal reveal-delay-3">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-tertiary); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-amber); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
               Backend
             </h3>
             <div class="tag-container" style="margin-top: 0;">
@@ -209,8 +245,8 @@
         <!-- Database -->
         <div class="glass-card reveal reveal-delay-4">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-sky); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
               Database
             </h3>
             <div class="tag-container" style="margin-top: 0;">
@@ -224,8 +260,8 @@
         <!-- Deployment -->
         <div class="glass-card reveal reveal-delay-5">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-primary); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.42-1.01-1.29-1.88-2.3-2.3C13.2 6.13 11 4 8.5 4 5.46 4 3 6.46 3 9.5c0 .35.04.7.1 1.05A4.5 4.5 0 0 0 0 15c0 2.49 2.01 4.5 4.5 4.5H17.5z"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-emerald); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.42-1.01-1.29-1.88-2.3-2.3C13.2 6.13 11 4 8.5 4 5.46 4 3 6.46 3 9.5c0 .35.04.7.1 1.05A4.5 4.5 0 0 0 0 15c0 2.49 2.01 4.5 4.5 4.5H17.5z"/></svg>
               Deployment
             </h3>
             <div class="tag-container" style="margin-top: 0;">
@@ -240,8 +276,8 @@
         <!-- Tools -->
         <div class="glass-card reveal reveal-delay-6">
           <div class="glass-card-content">
-            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-secondary); display: flex; align-items: center; gap: 0.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <h3 style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--accent-sky); display: flex; align-items: center; gap: 0.5rem; font-weight: 400;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               Tools
             </h3>
             <div class="tag-container" style="margin-top: 0;">
@@ -260,25 +296,28 @@
   <!-- 5.5. Featured Writing Section -->
   <section id="featured-writing" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Featured Writing</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">Selected deep-dives on systems thinking, operational realities, and engineering decisions.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 05.5 — writing</div>
+        <h2 class="section-title">Featured Writing</h2>
+        <p class="section-subtitle">Selected deep-dives on systems thinking, operational realities, and engineering decisions.</p>
+      </div>
 
       <div class="writing-grid">
         <!-- Article 1: Failure-Aware System -->
         <article class="glass-card reveal reveal-delay-1" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
           <div class="glass-card-content" style="display: flex; flex-direction: column; height: 100%;">
             <div class="project-header" style="margin-bottom: 0.5rem;">
-              <span class="note-category" style="color: var(--accent-tertiary); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Reliability</span>
+              <span class="note-category" style="color: var(--accent-amber); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Reliability</span>
               <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">3 min read</span>
             </div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4;">I Built a Failure-Aware System Because "Retry Until It Works" Is a Lie</h3>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4; font-weight: 400;">I Built a Failure-Aware System Because "Retry Until It Works" Is a Lie</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1;">
               Most systems fail quietly. I built a Failure-Aware System that treats failure as first-class data using Event-First Failure Modeling.
             </p>
             <div style="margin-top: auto; display: flex; gap: 0.75rem;">
-              <a href="#archive" class="project-btn" data-featured-note-id="3" style="width: 100%; justify-content: center; background: rgba(45, 212, 191, 0.08); border-color: rgba(45, 212, 191, 0.25); color: var(--text-primary);">
-                Read Article
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              <a href="#archive" class="project-btn" data-featured-note-id="3" style="width: 100%; justify-content: center; background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.75rem;">
+                read.full_log()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
@@ -288,17 +327,17 @@
         <article class="glass-card reveal reveal-delay-2" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
           <div class="glass-card-content" style="display: flex; flex-direction: column; height: 100%;">
             <div class="project-header" style="margin-bottom: 0.5rem;">
-              <span class="note-category" style="color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Telemetry</span>
+              <span class="note-category" style="color: var(--accent-sky); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Telemetry</span>
               <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">3 min read</span>
             </div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4;">Building an Operational Drift Analyzer</h3>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4; font-weight: 400;">Building an Operational Drift Analyzer</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1;">
               How "Not Enough Data" taught me more than any success ever did. Building a reasoning system instead of a threshold alerting engine.
             </p>
             <div style="margin-top: auto; display: flex; gap: 0.75rem;">
-              <a href="#archive" class="project-btn" data-featured-note-id="4" style="width: 100%; justify-content: center; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.25); color: var(--text-primary);">
-                Read Article
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              <a href="#archive" class="project-btn" data-featured-note-id="4" style="width: 100%; justify-content: center; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.2); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.75rem;">
+                read.full_log()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
@@ -308,17 +347,17 @@
         <article class="glass-card reveal reveal-delay-3" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
           <div class="glass-card-content" style="display: flex; flex-direction: column; height: 100%;">
             <div class="project-header" style="margin-bottom: 0.5rem;">
-              <span class="note-category" style="color: var(--accent-primary); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Infrastructure</span>
+              <span class="note-category" style="color: var(--accent-emerald); font-family: var(--font-mono); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Infrastructure</span>
               <span style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">2 min read</span>
             </div>
-            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4;">Infrastructure Discipline: Surviving Production Deployments</h3>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.75rem; line-height: 1.4; font-weight: 400;">Infrastructure Discipline: Surviving Production Deployments</h3>
             <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.5rem; flex-grow: 1;">
               Reflections on production stabilizing: MongoDB Atlas auth troubleshooting, CORS alignments, and debugging hook issues.
             </p>
             <div style="margin-top: auto; display: flex; gap: 0.75rem;">
-              <a href="#archive" class="project-btn" data-featured-note-id="8" style="width: 100%; justify-content: center; background: rgba(129, 140, 248, 0.08); border-color: rgba(129, 140, 248, 0.25); color: var(--text-primary);">
-                Read Article
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              <a href="#archive" class="project-btn" data-featured-note-id="8" style="width: 100%; justify-content: center; background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.2); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.75rem;">
+                read.full_log()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
@@ -330,39 +369,42 @@
   <!-- 6. Projects / Active Builds Section -->
   <section id="projects" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Projects & Experiments</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2rem;">A record of backend platforms and full-stack solutions built to solve real-world problems.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 06 — active_builds</div>
+        <h2 class="section-title">Projects &amp; Experiments</h2>
+        <p class="section-subtitle">A record of backend platforms and full-stack solutions built to solve real-world problems.</p>
+      </div>
       
       <div class="projects-grid">
         <!-- Project 1: AlumConnect -->
         <article class="glass-card reveal reveal-delay-1">
           <div class="glass-card-content">
             <div class="project-header">
-              <h3 style="font-size: 1.25rem;">AlumConnect</h3>
+              <h3 style="font-size: 1.25rem; font-weight: 400;">AlumConnect</h3>
               <span class="project-status status-active-pill">
                 <span class="status-dot"></span>
                 Complete
               </span>
             </div>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
               A full-stack alumni networking and mentorship platform built with React, FastAPI, MongoDB Atlas, and Clerk Authentication. The platform enables alumni discovery, mentorship connections, authentication workflows, analytics dashboards, and cloud-native deployment.
             </p>
-            <ul>
-            <li>Built and deployed full-stack architecture using React and FastAPI</li>
-            <li>Integrated Clerk authentication and role-based access workflows</li>
-            <li>Deployed frontend on Vercel and backend on Render</li>
-            <li>Used MongoDB Atlas for production database storage</li>
+            <ul class="project-bullets">
+              <li>Built and deployed full-stack architecture using React and FastAPI</li>
+              <li>Integrated Clerk authentication and role-based access workflows</li>
+              <li>Deployed frontend on Vercel and backend on Render</li>
+              <li>Used MongoDB Atlas for production database storage</li>
             </ul>
-            <div class="tag-container">
+            <div class="tag-container" style="margin-bottom: 1.25rem;">
               <span class="tag">react</span>
               <span class="tag">fastapi</span>
               <span class="tag">mongodb-atlas</span>
               <span class="tag">render</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/iuttkarshh0409/alumconnect-backend" target="_blank" class="project-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
-                Inspect
+              <a href="https://github.com/iuttkarshh0409/alumconnect-backend" target="_blank" class="project-btn" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em;">
+                Inspect.source()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
               </a>
             </div>
           </div>
@@ -372,29 +414,29 @@
         <article class="glass-card reveal reveal-delay-2">
           <div class="glass-card-content">
             <div class="project-header">
-              <h3 style="font-size: 1.25rem;">Swayam-Sanchay</h3>
+              <h3 style="font-size: 1.25rem; font-weight: 400;">Swayam-Sanchay</h3>
               <span class="project-status status-active-pill">
                 <span class="status-dot"></span>
                 Active
               </span>
             </div>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1rem;">
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
               This digital archive is built intentionally using pure vanilla HTML, CSS variables, and zero heavy abstraction frameworks to ensure ultimate transparency and visibility.
             </p>
-            <ul>
+            <ul class="project-bullets">
               <li>Built a personal digital archive to showcase projects, technical skills, education, and research interests</li>
               <li>Designed interactive sections including project portfolios, learning notebooks, and chronological growth logs</li>
               <li>Maintained the platform as a continuously evolving record of technical learning and professional development</li>
             </ul>
-            <div class="tag-container">
+            <div class="tag-container" style="margin-bottom: 1.25rem;">
               <span class="tag">vanilla-js</span>
               <span class="tag">css-variables</span>
               <span class="tag">canvas-api</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/iuttkarshh0409" target="_blank" class="project-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
-                Source
+              <a href="https://github.com/iuttkarshh0409" target="_blank" class="project-btn" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em;">
+                Inspect.source()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
               </a>
             </div>
           </div>
@@ -406,21 +448,29 @@
   <!-- 6. Notebook / Learning Archive Section -->
   <section id="archive" class="section">
     <div class="container">
-      <h2 class="section-title reveal">The Learning Notebook</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Observations, infrastructure analyses, and quick reflections on why simple systems succeed.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 07 — learning_notebook</div>
+        <h2 class="section-title">The Learning Notebook</h2>
+        <p class="section-subtitle">Observations, infrastructure analyses, and quick reflections on why simple systems succeed.</p>
+      </div>
       
       <div class="archive-layout">
         <!-- Sidebar filters -->
         <aside class="archive-sidebar reveal reveal-left">
           <div class="search-wrapper">
-            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" id="archive-search" class="search-input" placeholder="Search archive notes...">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="archive-search" class="search-input" placeholder="search notes..." style="font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-terminal);">
           </div>
           
           <div style="margin-top: 0.5rem;">
-            <p style="font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.05em;">Notebook Categories</p>
+            <p style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.08em; font-weight: 500;">Categories</p>
             <div id="filter-tabs" class="filter-tabs">
               <!-- JS dynamically generates category pills here -->
+            </div>
+            
+            <!-- Dynamic stats terminal block -->
+            <div id="archive-stats" class="stats-cli-block" style="margin-top: 1.5rem;">
+              <!-- JS dynamically updates this -->
             </div>
           </div>
         </aside>
@@ -436,22 +486,36 @@
   <!-- 7. Journey Timeline Section -->
   <section id="timeline" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Chronological Growth Logs</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 3.5rem;">The trajectory of my learning process. Click headers to expand technical logs.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 08 — chronological_logs</div>
+        <h2 class="section-title">Journey Timeline</h2>
+        <p class="section-subtitle">The trajectory of my learning process. Tap a milestone to expand its progress log.</p>
+      </div>
       
       <div class="timeline-path">
         <!-- Milestone 4 -->
         <div class="timeline-item reveal">
           <div class="timeline-indicator"></div>
-          <div class="timeline-date">May 2026</div>
-          <h3 class="timeline-title">Compiled Swayam-Sanchay</h3>
+          <div class="timeline-date" style="font-family: var(--font-mono);">May 2026</div>
+          <h3 class="timeline-title" style="font-weight: 400; font-size: 1.18rem;">Compiled Swayam-Sanchay</h3>
           <p class="timeline-details">Built this digital learning archive to document operational details, tracing processes, and failures.</p>
           
           <!-- Expandable failures and learnings log -->
-          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/swayam-concept.md]</p>
-            <p style="margin-bottom: 0.5rem;"><strong>The Concept:</strong> Designed to prove that web architectures can remain highly responsive and aesthetically pleasing using zero external framework compilation stages.</p>
-            <p><strong>Result:</strong> Fully static, SEO-friendly site that loads in milliseconds, proving that direct vanilla implementations yield maximum diagnostic clarity.</p>
+          <div class="timeline-extra-logs" style="display: none; margin-top: 1rem; border: 1px solid var(--glass-border); border-radius: var(--button-radius); overflow: hidden;">
+            <div class="terminal-block">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <span>$ tail -f /logs/swayam-concept.md</span>
+              </div>
+              <div class="terminal-content" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); text-align: left;">
+                <p style="margin-bottom: 0.5rem;"><span style="color: var(--accent-emerald);">[CONCEPT]</span> Designed to prove that web architectures can remain highly responsive and aesthetically pleasing using zero external framework compilation stages.</p>
+                <p style="margin: 0;"><span style="color: var(--accent-emerald);">[RESULT]</span> Fully static, SEO-friendly site that loads in milliseconds, proving that direct vanilla implementations yield maximum diagnostic clarity.</p>
+              </div>
+            </div>
           </div>
           
           <div class="timeline-tags">
@@ -463,15 +527,26 @@
         <!-- Milestone 3 -->
         <div class="timeline-item reveal">
           <div class="timeline-indicator"></div>
-          <div class="timeline-date">Late 2025</div>
-          <h3 class="timeline-title">Expanded Focus Beyond Application Development</h3>
+          <div class="timeline-date" style="font-family: var(--font-mono);">Late 2025</div>
+          <h3 class="timeline-title" style="font-weight: 400; font-size: 1.18rem;">Expanded Focus Beyond Application Development</h3>
           <p class="timeline-details">Started exploring deployment architecture, request tracing, authentication systems, database performance, and cloud infrastructure while working on larger projects.</p>
           
           <!-- Expandable failures and learnings log -->
-          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/observability-shift.md]</p>
-            <p style="margin-bottom: 0.5rem;"><strong>The Pivot:</strong> Realized that many systems continue appearing healthy through green status badges while containing fragile dependencies underneath.</p>
-            <p><strong>Action:</strong> Began researching request tracing, authentication timeout bounds, and connection pool dynamics to verify if operations actually match design maps.</p>
+          <div class="timeline-extra-logs" style="display: none; margin-top: 1rem; border: 1px solid var(--glass-border); border-radius: var(--button-radius); overflow: hidden;">
+            <div class="terminal-block">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <span>$ tail -f /logs/observability-shift.md</span>
+              </div>
+              <div class="terminal-content" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); text-align: left;">
+                <p style="margin-bottom: 0.5rem;"><span style="color: var(--accent-emerald);">[PIVOT]</span> Realized that many systems continue appearing healthy through green status badges while containing fragile dependencies underneath.</p>
+                <p style="margin: 0;"><span style="color: var(--accent-emerald);">[ACTION]</span> Began researching request tracing, authentication timeout bounds, and connection pool dynamics to verify if operations actually match design maps.</p>
+              </div>
+            </div>
           </div>
           
           <div class="timeline-tags">
@@ -483,14 +558,25 @@
         <!-- Milestone 2 -->
         <div class="timeline-item reveal">
           <div class="timeline-indicator"></div>
-          <div class="timeline-date">May 2025</div>
-          <h3 class="timeline-title">Built and Deployed AlumConnect</h3>
+          <div class="timeline-date" style="font-family: var(--font-mono);">May 2025</div>
+          <h3 class="timeline-title" style="font-weight: 400; font-size: 1.18rem;">Built and Deployed AlumConnect</h3>
           <p class="timeline-details">Developed a full-stack mentorship engine on Vercel and Render, running FastAPI with MongoDB Atlas.</p>
           
-          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/alumconnect-diagnostics.md]</p>
-            <p style="margin-bottom: 0.5rem;"><strong>Operational Discoveries:</strong> Experienced cold-start sleep cycles on Render's free tier. First request triggered timeouts in FastAPI container bootstrap, failing the MongoDB Atlas initial handshake.</p>
-            <p><strong>Resolution:</strong> Wrote custom exponential backoff connect retries. Learned that backend reliability is highly dependent on cloud infrastructure limits.</p>
+          <div class="timeline-extra-logs" style="display: none; margin-top: 1rem; border: 1px solid var(--glass-border); border-radius: var(--button-radius); overflow: hidden;">
+            <div class="terminal-block">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <span>$ tail -f /logs/alumconnect-diagnostics.md</span>
+              </div>
+              <div class="terminal-content" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); text-align: left;">
+                <p style="margin-bottom: 0.5rem;"><span style="color: var(--accent-emerald);">[DIAGNOSTICS]</span> Experienced cold-start sleep cycles on Render's free tier. First request triggered timeouts in FastAPI container bootstrap, failing the MongoDB Atlas initial handshake.</p>
+                <p style="margin: 0;"><span style="color: var(--accent-emerald);">[RESOLUTION]</span> Wrote custom exponential backoff connect retries. Learned that backend reliability is highly dependent on cloud infrastructure limits.</p>
+              </div>
+            </div>
           </div>
 
           <div class="timeline-tags">
@@ -499,18 +585,28 @@
             <span class="timeline-tag">Cold Starts</span>
           </div>
         </div>
-
-        <!-- Milestone 1 -->
+          <!-- Milestone 1 -->
         <div class="timeline-item reveal">
           <div class="timeline-indicator"></div>
-          <div class="timeline-date">Jan 2024</div>
-          <h3 class="timeline-title">Began Programming Runtimes</h3>
+          <div class="timeline-date" style="font-family: var(--font-mono);">Jan 2024</div>
+          <h3 class="timeline-title" style="font-weight: 400; font-size: 1.18rem;">Began Programming Runtimes</h3>
           <p class="timeline-details">Started exploring programming with basic application constructs, writing functional code, and focusing on visible outputs.</p>
           
-          <div class="timeline-extra-logs" style="display: none; padding: 1rem; margin-top: 0.75rem; background: rgba(0,0,0,0.25); border-left: 2px solid var(--accent-primary); border-radius: 4px; font-size: 0.88rem; color: var(--text-secondary);">
-            <p style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-primary); margin-bottom: 0.5rem;">[PROGRESS LOG: /logs/early-runtimes.md]</p>
-            <p style="margin-bottom: 0.5rem;"><strong>Starting Point:</strong> Focused on syntax retention and making features work visually. Believed a running program with green compile logs was the final goal.</p>
-            <p><strong>Lessons:</strong> Understood that functional success is only the top layer of actual software craftsmanship.</p>
+          <div class="timeline-extra-logs" style="display: none; margin-top: 1rem; border: 1px solid var(--glass-border); border-radius: var(--button-radius); overflow: hidden;">
+            <div class="terminal-block">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="terminal-dot red"></span>
+                  <span class="terminal-dot yellow"></span>
+                  <span class="terminal-dot green"></span>
+                </div>
+                <span>$ tail -f /logs/early-runtimes.md</span>
+              </div>
+              <div class="terminal-content" style="font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.6; color: var(--text-secondary); text-align: left;">
+                <p style="margin-bottom: 0.5rem;"><span style="color: var(--accent-emerald);">[INIT]</span> Focused on syntax retention and making features work visually. Believed a running program with green compile logs was the final goal.</p>
+                <p style="margin: 0;"><span style="color: var(--accent-emerald);">[LESSON]</span> Understood that functional success is only the top layer of actual software craftsmanship.</p>
+              </div>
+            </div>
           </div>
 
           <div class="timeline-tags">
@@ -521,23 +617,28 @@
       </div>
     </div>
   </section>
+
+  <!-- 8. Education Section -->
   <section id="education" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Education</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Academic foundations and digital credentials.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 09 — academic_foundations</div>
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic foundations and digital credentials.</p>
+      </div>
 
       <div class="education-grid">
         <!-- Degree 1 -->
-        <div class="glass-card accent-card reveal reveal-delay-1">
+        <div class="glass-card accent-emerald reveal reveal-delay-1">
           <div class="glass-card-content">
             <div class="project-header">
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Integrated Master of Computer Applications (MCA)</h3>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 400;">Integrated Master of Computer Applications (MCA)</h3>
               <span class="project-status status-active-pill">
                 <span class="status-dot"></span>
                 Ongoing
               </span>
             </div>
-            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-primary); margin-bottom: 0.75rem;">2023 &mdash; 2028</p>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-emerald); margin-bottom: 0.75rem;">2023 &mdash; 2028</p>
             <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
               International Institute of Professional Studies (IIPS), Devi Ahilya Vishwavidyalaya, Indore
             </p>
@@ -545,7 +646,7 @@
               Expected Post-Graduation: July, 2028
             </p>
             <p style="font-size: 0.82rem; color: var(--text-secondary); border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 0.5rem;">
-              <strong>Relevant Coursework:</strong> Operating Systems, Cloud Computing, System Analysis & Design, Human Computer Interaction, Android Development
+              <strong>Relevant Coursework:</strong> Operating Systems, Cloud Computing, System Analysis &amp; Design, Human Computer Interaction, Android Development
             </p>
           </div>
         </div>
@@ -554,7 +655,7 @@
         <div class="glass-card reveal reveal-delay-2">
           <div class="glass-card-content">
             <div class="project-header">
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Senior Secondary Education</h3>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 400;">Senior Secondary Education</h3>
               <span class="project-status status-archived-pill">
                 <span class="status-dot"></span>
                 Completed
@@ -571,7 +672,7 @@
         <div class="glass-card reveal reveal-delay-3">
           <div class="glass-card-content">
             <div class="project-header">
-              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Higher Secondary Education</h3>
+              <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 400;">Higher Secondary Education</h3>
               <span class="project-status status-archived-pill">
                 <span class="status-dot"></span>
                 Completed
@@ -587,32 +688,35 @@
     </div>
   </section>
 
-  <!-- 8. Research Interests Section -->
+  <!-- 8.5 Research Interests Section -->
   <section id="research" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Research Interests</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Theoretical domains and areas of academic inquiry.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 10 — research_interests</div>
+        <h2 class="section-title">Research Interests</h2>
+        <p class="section-subtitle">Theoretical domains and areas of academic inquiry.</p>
+      </div>
       
       <div class="glass-card reveal reveal-delay-2" style="max-width: 800px;">
         <div class="glass-card-content">
-          <ul style="list-style-type: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; padding-left: 0; margin: 0;">
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-primary); font-size: 1.25rem;">&bull;</span> Software Reliability
+          <ul style="list-style-type: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; padding-left: 0; margin: 0; font-family: var(--font-mono); font-size: 0.88rem;">
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-emerald);">[01]</span> Software Reliability
             </li>
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-secondary); font-size: 1.25rem;">&bull;</span> Cloud Computing
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-sky);">[02]</span> Cloud Computing
             </li>
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-tertiary); font-size: 1.25rem;">&bull;</span> Backend Systems
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-amber);">[03]</span> Backend Systems
             </li>
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-cyan); font-size: 1.25rem;">&bull;</span> Human-Computer Interaction
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-sky);">[04]</span> Human-Computer Interaction
             </li>
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-primary); font-size: 1.25rem;">&bull;</span> AI Applications
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-emerald);">[05]</span> AI Applications
             </li>
-            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary); font-size: 1rem;">
-              <span style="color: var(--accent-secondary); font-size: 1.25rem;">&bull;</span> Distributed Systems
+            <li style="display: flex; align-items: center; gap: 0.65rem; color: var(--text-secondary);">
+              <span style="color: var(--accent-sky);">[06]</span> Distributed Systems
             </li>
           </ul>
         </div>
@@ -623,14 +727,17 @@
   <!-- 9. Digital Presence Connectors Section -->
   <section id="connectors" class="section">
     <div class="container">
-      <h2 class="section-title reveal">Digital Connectors</h2>
-      <p class="reveal reveal-delay-1" style="color: var(--text-muted); margin-bottom: 2.5rem;">Discover my work, academic index, and digital presence coordinates.</p>
+      <div class="section-header-block reveal">
+        <div class="section-kicker">/ 11 — digital_coordinates</div>
+        <h2 class="section-title">Digital Connectors</h2>
+        <p class="section-subtitle">Discover my work, academic index, and digital presence coordinates.</p>
+      </div>
       
       <div class="connectors-grid reveal">
         <!-- GitHub -->
         <a href="https://github.com/iuttkarshh0409" target="_blank" class="connector-card reveal-delay-1" data-brand="github">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">GitHub</span>
@@ -641,7 +748,7 @@
         <!-- LinkedIn -->
         <a href="https://www.linkedin.com/in/utkarsh-dubey-227098352/" target="_blank" class="connector-card reveal-delay-2" data-brand="linkedin">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">LinkedIn</span>
@@ -652,7 +759,7 @@
         <!-- Medium -->
         <a href="https://medium.com/@dubeutkarsh7" target="_blank" class="connector-card reveal-delay-3" data-brand="medium">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">Medium Journal</span>
@@ -663,7 +770,7 @@
         <!-- Google Scholar -->
         <a href="https://scholar.google.com/citations?user=3VDh88UAAAAJ&hl=en" target="_blank" class="connector-card reveal-delay-4" data-brand="scholar">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">Google Scholar</span>
@@ -674,7 +781,7 @@
         <!-- ORCID ID -->
         <a href="https://orcid.org/0009-0006-3133-227X" target="_blank" class="connector-card reveal-delay-5" data-brand="orcid">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 8v8M11 8h1.5a2.5 2.5 0 0 1 0 5H11M11 13h2.5a2.5 2.5 0 0 1 0 5H11"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M9 8v8M11 8h1.5a2.5 2.5 0 0 1 0 5H11M11 13h2.5a2.5 2.5 0 0 1 0 5H11"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">ORCID ID</span>
@@ -685,7 +792,7 @@
         <!-- Instagram -->
         <a href="https://www.instagram.com/utkarsh.in.real/" target="_blank" class="connector-card reveal-delay-6" data-brand="instagram">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">Instagram</span>
@@ -696,7 +803,7 @@
         <!-- Email -->
         <a href="mailto:dubeyutkarsh101@gmail.com" class="connector-card reveal-delay-7" data-brand="email">
           <div class="connector-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </div>
           <div class="connector-info">
             <span class="connector-name">Direct Mail</span>
@@ -709,12 +816,15 @@
 
   <!-- 9. Dynamic System Footer -->
   <footer class="footer-wrap">
-    <div class="container footer-content">
+    <div class="container footer-content" style="display: flex; flex-direction: column; gap: 0.85rem; align-items: center;">
       <div class="footer-meta" id="terminal-clock">
-        [SYS LOG: syncing local clock...]
+        [UTC 00:00:00] <span class="clock-sync-dot"></span> sys.clock.synced
       </div>
-      <div class="footer-meta" style="color: var(--text-secondary);">
-        Swayam-Sanchay &bull; Engineered with Pure CSS, HTML5, & Vanilla Javascript &bull; &copy; 2026
+      <div class="footer-meta" style="color: var(--text-secondary); font-size: 0.75rem;">
+        v2.6 / continuously_in_motion &bull; Swayam-Sanchay &bull; Engineered with Pure CSS, HTML5, &amp; Vanilla Javascript
+      </div>
+      <div class="footer-meta">
+        <a href="#hero" style="font-size: 0.72rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-emerald);">sys.back_to_top()</a>
       </div>
     </div>
   </footer>

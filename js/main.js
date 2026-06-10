@@ -74,8 +74,8 @@ function initNavigationSync() {
       }
     });
   }, {
-    threshold: 0.25,
-    rootMargin: "-20% 0px -60% 0px"
+    threshold: 0,
+    rootMargin: "-40% 0px -55% 0px"
   });
   
   sections.forEach(sec => sectionObserver.observe(sec));
@@ -107,10 +107,11 @@ function initSystemClock() {
 
   function updateClock() {
     const now = new Date();
-    // Beautiful localized formatting
-    const timeStr = now.toLocaleTimeString('en-US', { hour12: false });
-    const dateStr = now.toISOString().split('T')[0];
-    clockElement.textContent = `[SYS LOG: ${dateStr} ${timeStr} GMT+5:30]`;
+    const hours = String(now.getUTCHours()).padStart(2, '0');
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+    
+    clockElement.innerHTML = `[UTC ${hours}:${minutes}:${seconds}] <span class="clock-sync-dot"></span> sys.clock.synced`;
   }
   
   updateClock();

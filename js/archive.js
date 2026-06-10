@@ -353,12 +353,23 @@ class ArchiveController {
     });
   }
 
+  updateStats(visibleCount) {
+    const statsBlock = document.getElementById("archive-stats");
+    if (!statsBlock) return;
+    statsBlock.innerHTML = `
+      <div class="stats-cli-title">$ archive --stats</div>
+      <div class="stats-cli-line"><span class="stats-cli-key">total_notes:</span><span class="stats-cli-val">${this.notes.length}</span></div>
+      <div class="stats-cli-line"><span class="stats-cli-key">visible:</span><span class="stats-cli-val">${visibleCount}</span></div>
+      <div class="stats-cli-line"><span class="stats-cli-key">category:</span><span class="stats-cli-val">${this.activeCategory}</span></div>
+    `;
+  }
+
   renderNotes() {
     if (!this.notesContainer) return;
 
     // Filter notes based on active Category and Search Query
     const filteredNotes = this.notes.filter(note => {
-      const matchesCategory = this.activeCategory === "ALL" || note.category === this.activeCategory;
+      const matchesCategory = this.activeCategory === "ALL" || note.category.toUpperCase() === this.activeCategory.toUpperCase();
       
       const matchesSearch = 
         note.title.toLowerCase().includes(this.searchQuery) ||
@@ -368,6 +379,8 @@ class ArchiveController {
         
       return matchesCategory && matchesSearch;
     });
+
+    this.updateStats(filteredNotes.length);
 
     if (filteredNotes.length === 0) {
       this.notesContainer.innerHTML = `
@@ -380,6 +393,7 @@ class ArchiveController {
 
     this.notesContainer.innerHTML = filteredNotes.map(note => {
       const tagHTML = note.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
+      const catSlug = note.category.toLowerCase().replace(/\s+/g, "_");
       
       return `
         <article class="glass-card note-card reveal" data-note-id="${note.id}">
@@ -390,7 +404,21 @@ class ArchiveController {
             </div>
             <h3 class="note-title">${note.title}</h3>
             <p class="note-excerpt">${note.excerpt}</p>
-            <div class="note-body">${note.content}</div>
+            <div class="note-body">
+              <div class="terminal-block">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="terminal-dot red"></span>
+                    <span class="terminal-dot yellow"></span>
+                    <span class="terminal-dot green"></span>
+                  </div>
+                  <span>$ cat /notes/${note.id}_${catSlug}.md</span>
+                </div>
+                <div class="terminal-content">
+                  ${note.content}
+                </div>
+              </div>
+            </div>
             <div class="tag-container">${tagHTML}</div>
           </div>
         </article>

@@ -1,58 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Core Theme Colors */
-  --bg-base: #070709;
-  --bg-surface: #0e0f13;
-  --bg-surface-elevated: #15171d;
+  --bg-base: #050505;
+  --bg-surface: #0A0A0A;
+  --bg-terminal: #000000;
   
   /* Text Colors */
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
+  --text-primary: #FAFAFA;
+  --text-secondary: #A1A1AA;
+  --text-muted: #52525B;
   
   /* Accent Colors */
-  --accent-primary: #818cf8;       /* Indigo Glow */
-  --accent-primary-rgb: 129, 140, 248;
-  --accent-secondary: #a78bfa;     /* Violet Glow */
-  --accent-secondary-rgb: 167, 139, 250;
-  --accent-tertiary: #2dd4bf;      /* Mint Teal */
-  --accent-tertiary-rgb: 45, 212, 191;
-  --accent-cyan: #38bdf8;          /* Tech Cyan */
+  --accent-emerald: #10B981;
+  --accent-emerald-hover: #34D399;
+  --accent-sky: #38BDF8;
+  --accent-amber: #FBBF24;
+  
+  /* Backward compatibility shortcuts */
+  --accent-primary: var(--accent-emerald);
+  --accent-secondary: var(--accent-sky);
+  --accent-tertiary: var(--accent-amber);
+  --accent-cyan: var(--accent-sky);
   
   /* Status Colors */
-  --status-active: #34d399;        /* Emerald */
-  --status-active-rgb: 52, 211, 153;
-  --status-experimental: #fbbf24;  /* Amber */
-  --status-experimental-rgb: 251, 191, 36;
-  --status-archived: #9ca3af;      /* Gray */
-  --status-archived-rgb: 156, 163, 175;
+  --status-active: var(--accent-emerald);
+  --status-experimental: var(--accent-amber);
+  --status-archived: var(--text-muted);
 
   /* Glassmorphism Specs */
-  --glass-bg: rgba(14, 15, 20, 0.6);
-  --glass-bg-hover: rgba(21, 23, 29, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.05);
-  --glass-border-hover: rgba(255, 255, 255, 0.12);
-  --glass-shadow: rgba(0, 0, 0, 0.4);
-  --glass-blur: 16px;
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-bg-hover: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-hover: rgba(16, 185, 129, 0.30);
+  --glass-shadow: none; /* Avoid drop shadows for premium feel */
+  --glass-blur: 20px;
   
   /* Gradients */
-  --gradient-cyber: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  --gradient-text: linear-gradient(to right, #ffffff, #c7d2fe, #e9d5ff);
-  --gradient-dark-glow: radial-gradient(circle at 50% 50%, rgba(129, 140, 248, 0.1) 0%, transparent 60%);
+  --gradient-text: linear-gradient(to right, #ffffff, #a1a1aa);
+  --gradient-dark-glow: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
   
   /* Font Families */
-  --font-display: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-mono: 'Fira Code', monospace;
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   
   /* Layout Controls */
-  --max-width: 1100px;
+  --max-width: 1200px;
   --nav-height: 70px;
-  --card-radius: 14px;
+  --card-radius: 16px;
   --button-radius: 8px;
   
   /* Transitions */
-  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+

@@ -113,3 +113,13 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
+
+/* --- Blinking Terminal Caret --- */
+.terminal-caret {
+  animation: caretBlink 1s step-end infinite;
+}
+
+@keyframes caretBlink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}

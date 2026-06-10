@@ -45,9 +45,9 @@ class CuriosityGraph {
       vx: (Math.random() - 0.5) * 0.35, // Slow, calm speeds
       vy: (Math.random() - 0.5) * 0.35,
       radius: Math.random() * 2 + 1.2,
-      // Accents from variables.css: Primary (indigo) or Secondary (purple)
-      color: Math.random() > 0.4 ? 'rgba(129, 140, 248, ' : 'rgba(167, 139, 250, ',
-      opacity: Math.random() * 0.4 + 0.15
+      // Accents: Emerald (primary) or Sky Blue (secondary)
+      color: Math.random() > 0.35 ? 'rgba(16, 185, 129, ' : 'rgba(56, 189, 248, ',
+      opacity: Math.random() * 0.3 + 0.1
     };
   }
 
@@ -109,12 +109,12 @@ class CuriosityGraph {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.connectionDistance) {
-          const alpha = (1 - dist / this.connectionDistance) * 0.12;
+          const alpha = (1 - dist / this.connectionDistance) * 0.08;
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(p2.x, p2.y);
-          this.ctx.strokeStyle = `rgba(129, 140, 248, ${alpha})`;
-          this.ctx.lineWidth = 0.6;
+          this.ctx.strokeStyle = `rgba(16, 185, 129, ${alpha})`;
+          this.ctx.lineWidth = 0.5;
           this.ctx.stroke();
         }
       }
@@ -126,12 +126,12 @@ class CuriosityGraph {
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < this.mouseConnectionDistance) {
-          const alpha = (1 - dist / this.mouseConnectionDistance) * 0.18;
+          const alpha = (1 - dist / this.mouseConnectionDistance) * 0.12;
           this.ctx.beginPath();
           this.ctx.moveTo(p.x, p.y);
           this.ctx.lineTo(this.mouse.x, this.mouse.y);
-          this.ctx.strokeStyle = `rgba(167, 139, 250, ${alpha})`;
-          this.ctx.lineWidth = 0.8;
+          this.ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+          this.ctx.lineWidth = 0.6;
           this.ctx.stroke();
         }
       }

@@ -369,15 +369,60 @@
   <!-- 6. Projects / Active Builds Section -->
   <section id="projects" class="section">
     <div class="container">
-      <div class="section-header-block reveal">
-        <div class="section-kicker">/ 06 — active_builds</div>
-        <h2 class="section-title">Projects &amp; Experiments</h2>
-        <p class="section-subtitle">A record of backend platforms and full-stack solutions built to solve real-world problems.</p>
+      <div class="section-header-block reveal" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+        <div>
+          <div class="section-kicker">/ 06 — active_builds</div>
+          <h2 class="section-title">Projects &amp; Experiments</h2>
+          <p class="section-subtitle">A record of backend platforms and full-stack solutions built to solve real-world problems.</p>
+        </div>
+        <a href="/projects" class="project-btn" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; white-space: nowrap; border-color: rgba(16, 185, 129, 0.2); color: var(--accent-emerald); background: rgba(16, 185, 129, 0.05); flex-shrink: 0; align-self: flex-end; margin-bottom: 0.25rem;">
+          Browse Project Archive
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
       
       <div class="projects-grid">
+        <!-- Project 0: DevLens -->
+        <article class="glass-card accent-emerald reveal reveal-delay-1">
+          <div class="glass-card-content">
+            <div class="project-header">
+              <h3 style="font-size: 1.25rem; font-weight: 400;">DevLens</h3>
+              <span class="project-status status-flagship-pill">
+                <span class="status-dot"></span>
+                Flagship
+              </span>
+            </div>
+            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+              An AI-powered GitHub code review platform that audits repositories using native GitHub Checks, intelligent repository analysis, and automated engineering best-practice scoring. Built as a production-grade GitHub App with a modern developer tooling ecosystem.
+            </p>
+            <ul class="project-bullets">
+              <li>Built a production GitHub App with native GitHub Checks integration</li>
+              <li>Performs automated repository audits using FastAPI and AI-powered analysis</li>
+              <li>Publishes inline annotations, quality scores, and actionable recommendations</li>
+              <li>Includes Web Dashboard, VS Code Extension, CLI, and REST API</li>
+              <li>Supports real-time webhook processing and asynchronous repository analysis</li>
+              <li>Deployed with Render and integrated directly into GitHub developer workflows</li>
+            </ul>
+            <div class="tag-container" style="margin-bottom: 1.25rem;">
+              <span class="tag">fastapi</span>
+              <span class="tag">github-app</span>
+              <span class="tag">github-api</span>
+              <span class="tag">ai</span>
+              <span class="tag">webhooks</span>
+              <span class="tag">react</span>
+              <span class="tag">render</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/iuttkarshh0409/DevLens-v3" target="_blank" class="project-btn" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em;">
+                Inspect.source()
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
         <!-- Project 1: AlumConnect -->
-        <article class="glass-card reveal reveal-delay-1">
+        <article class="glass-card reveal reveal-delay-2">
           <div class="glass-card-content">
             <div class="project-header">
               <h3 style="font-size: 1.25rem; font-weight: 400;">AlumConnect</h3>
@@ -411,7 +456,7 @@
         </article>
 
         <!-- Project 2: Swayam-Sanchay -->
-        <article class="glass-card reveal reveal-delay-2">
+        <article class="glass-card reveal reveal-delay-3">
           <div class="glass-card-content">
             <div class="project-header">
               <h3 style="font-size: 1.25rem; font-weight: 400;">Swayam-Sanchay</h3>

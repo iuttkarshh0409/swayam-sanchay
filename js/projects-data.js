@@ -721,6 +721,51 @@ export const PROJECTS = [
   openSource: true,
   liveDeployment: false,
 },
+{
+  id: 15,
+  slug: "whatsdue-ai-agent",
+  title: "WhatsDue",
+  status: "complete",
+  difficulty: "intermediate",
+  year: 2024,
+  featured: false,
+  category: "Developer Tools",
+  description:
+    "A productivity automation tool that schedules assignment reminders through WhatsApp using Flask, MySQL, Twilio's WhatsApp API, and scheduled background jobs. Designed to automate deadline tracking and notification delivery with minimal user interaction.",
+  completionDate: "October 2024",
+  estimatedBuildTime: "3 Weeks",
+  projectScale: "Small",
+  projectType: "Automation Tool",
+  metrics: [
+    "Twilio WhatsApp API",
+    "Cron Automation",
+    "Flask REST API",
+    "MySQL",
+    "Scheduled Jobs"
+  ],
+  technologies: [
+    "python",
+    "flask",
+    "mysql",
+    "twilio",
+    "cron",
+    "javascript",
+    "html5",
+    "css3"
+  ],
+  tags: [
+    "automation",
+    "backend",
+    "developer-tools",
+    "open-source"
+  ],
+  github: "https://github.com/iuttkarshh0409/WhatsDueAIAgent",
+  live: null,
+  caseStudy: null,
+  image: null,
+  openSource: true,
+  liveDeployment: false,
+}
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────

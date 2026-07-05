@@ -55,7 +55,7 @@ export const PROJECTS = [
     description:
       "An AI-powered GitHub code review platform that audits repositories using native GitHub Checks, intelligent repository analysis, and automated engineering best-practice scoring. Built as a production-grade GitHub App with a modern developer tooling ecosystem.",
     completionDate: "July 2026",
-    estimatedBuildTime: "3 Weeks",
+    estimatedBuildTime: "4 Weeks",
     projectScale: "Large",
     projectType: "GitHub App",
     metrics: [
@@ -245,7 +245,7 @@ export const PROJECTS = [
 
   completionDate: "July 2026",
   estimatedBuildTime: "2 Weeks",
-  projectScale: "Medium",
+  projectScale: "Small",
   projectType: "AI Developer Tool",
 
   metrics: [
@@ -291,7 +291,7 @@ export const PROJECTS = [
   difficulty: "advanced",
   year: 2026,
   featured: false,
-  category: "Full Stack",
+  category: "Enterprise Systems",
 
   description:
     "A multi-tenant SaaS task management platform that enables multiple organizations to securely manage projects within a shared infrastructure. OrgSync implements tenant isolation, role-based access control, JWT authentication, Dockerized deployment, and complete task lifecycle management with activity auditing.",
@@ -345,7 +345,7 @@ export const PROJECTS = [
   difficulty: "advanced",
   year: 2026,
   featured: false,
-  category: "Web Applications",
+  category: "Full Stack",
 
   description:
     "A full-stack productivity and habit tracking platform engineered around behavioral analytics rather than simple task completion. Habit Cadence combines FastAPI, React, Turso, and interactive visualizations to help users understand consistency, long-term trends, and personal performance through intelligent insights.",
@@ -639,7 +639,7 @@ export const PROJECTS = [
 {
   id: 13,
   slug: "smart-academic-planner",
-  title: "Academic Intelligence Planner",
+  title: "Smart Academic Planner",
   status: "complete",
   difficulty: "beginner",
   year: 2025,

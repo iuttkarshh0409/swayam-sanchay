@@ -18,6 +18,9 @@
   --accent-amber: #FBBF24;
   --accent-purple: #A855F7;
   --accent-purple-hover: #C084FC;
+  --accent-indigo: #6366F1;
+  --accent-rose: #F43F5E;
+  --accent-teal: #14B8A6;
   
   /* Backward compatibility shortcuts */
   --accent-primary: var(--accent-emerald);

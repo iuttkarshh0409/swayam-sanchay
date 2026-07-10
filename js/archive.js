@@ -1942,12 +1942,22 @@ Under Review
 
 class ArchiveController {
   constructor() {
-    // Map notes to their respective projects dynamically based on ID ranges
+    // Map notes to their respective projects dynamically based on ID ranges & user mappings
     this.notes = NOTEBOOK_DATA.map(note => {
       let project = "General Lessons";
-      if (note.id >= 11 && note.id <= 20) project = "WorkLedger";
-      else if (note.id >= 21 && note.id <= 30) project = "DevLens";
-      else if (note.id >= 31 && note.id <= 40) project = "ProjectMind";
+      if (note.id === 1 || note.id === 2 || note.id === 8 || note.id === 9 || note.id === 10) {
+        project = "AlumConnect";
+      } else if (note.id === 3 || note.id === 4 || note.id === 6) {
+        project = "AERIS v2";
+      } else if (note.id === 7) {
+        project = "Discipline Engine";
+      } else if (note.id >= 11 && note.id <= 20) {
+        project = "WorkLedger";
+      } else if (note.id >= 21 && note.id <= 30) {
+        project = "DevLens";
+      } else if (note.id >= 31 && note.id <= 40) {
+        project = "ProjectMind";
+      }
       return { ...note, project };
     });
 
@@ -1985,7 +1995,16 @@ class ArchiveController {
   renderProjects() {
     if (!this.projectTabsContainer) return;
 
-    const projects = ["ALL", "DevLens", "WorkLedger", "ProjectMind", "General Lessons"];
+    const projects = [
+      "ALL", 
+      "DevLens", 
+      "WorkLedger", 
+      "ProjectMind", 
+      "AlumConnect", 
+      "AERIS v2", 
+      "Discipline Engine", 
+      "General Lessons"
+    ];
     
     this.projectTabsContainer.innerHTML = projects.map(proj => {
       const activeClass = (this.activeProject === proj && this.activeTopic === "ALL") ? "active" : "";

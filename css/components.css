@@ -438,6 +438,24 @@
   color: var(--accent-purple);
 }
 
+.note-project-badge.alumconnect {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: var(--accent-indigo);
+}
+
+.note-project-badge.aeris-v2 {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  color: var(--accent-rose);
+}
+
+.note-project-badge.discipline-engine {
+  background: rgba(20, 184, 166, 0.08);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  color: var(--accent-teal);
+}
+
 .note-title {
   font-size: 1.15rem;
   font-weight: 600;

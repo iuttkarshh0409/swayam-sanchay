@@ -511,14 +511,23 @@
             <input type="text" id="archive-search" class="search-input" placeholder="search notes..." style="font-family: var(--font-mono); font-size: 0.8rem; background: var(--bg-terminal);">
           </div>
           
-          <div style="margin-top: 0.5rem;">
-            <p style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.08em; font-weight: 500;">Categories</p>
-            <div id="filter-tabs" class="filter-tabs">
-              <!-- JS dynamically generates category pills here -->
+          <div style="margin-top: 0.5rem; display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <p style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.08em; font-weight: 500;">Projects</p>
+              <div id="project-tabs" class="filter-tabs">
+                <!-- JS dynamically generates project pills here -->
+              </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.25rem;">
+              <p style="font-size: 0.68rem; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.6rem; letter-spacing: 0.08em; font-weight: 500;">Popular Topics</p>
+              <div id="topic-tabs" class="filter-tabs">
+                <!-- JS dynamically generates topic pills here -->
+              </div>
             </div>
             
             <!-- Dynamic stats terminal block -->
-            <div id="archive-stats" class="stats-cli-block" style="margin-top: 1.5rem;">
+            <div id="archive-stats" class="stats-cli-block" style="margin-top: 0.5rem;">
               <!-- JS dynamically updates this -->
             </div>
           </div>

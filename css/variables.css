@@ -16,6 +16,8 @@
   --accent-emerald-hover: #34D399;
   --accent-sky: #38BDF8;
   --accent-amber: #FBBF24;
+  --accent-purple: #A855F7;
+  --accent-purple-hover: #C084FC;
   
   /* Backward compatibility shortcuts */
   --accent-primary: var(--accent-emerald);

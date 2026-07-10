@@ -1241,17 +1241,724 @@ Under Review
 
     <p>Projects eventually end. The thinking they cultivate doesn't. DevLens taught me that engineering isn't about writing more code. It's about designing systems that remain understandable, reliable, and adaptable long after the first version ships.</p>
   `
+},
+{
+  id: 31,
+  title: "AI Doesn't Need More Context. It Needs Better Context.",
+  category: "AI Systems",
+  readTime: "3 min read",
+  date: "Jul 24, 2026",
+  excerpt: "I assumed better AI reasoning came from providing more repository context. Building ProjectMind taught me that intelligence often comes from carefully deciding what not to send.",
+
+  tags: [
+    "ai",
+    "llm",
+    "system-design",
+    "software-engineering",
+    "projectmind"
+  ],
+
+  content: `
+    <p>One of my earliest assumptions while building ProjectMind was surprisingly simple.</p>
+
+    <p>If the AI could see more of the repository, it would produce better review suggestions.</p>
+
+    <p>So I kept thinking about adding more context.</p>
+
+    <p>More files.</p>
+
+    <p>More metadata.</p>
+
+    <p>More documentation.</p>
+
+    <p>Eventually I realized I was solving the wrong problem.</p>
+
+    <p>Large language models are remarkably good at reasoning, but they are not particularly good at deciding which pieces of information actually matter.</p>
+
+    <p>That responsibility belongs to software.</p>
+
+    <p>Instead of expanding the prompt indefinitely, ProjectMind started doing something much simpler.</p>
+
+    <ul>
+      <li>Analyze the Git diff.</li>
+      <li>Understand the workspace.</li>
+      <li>Identify only the files that are likely to be affected.</li>
+      <li>Provide structured evidence for each candidate.</li>
+      <li>Ask the AI to reason only over that curated context.</li>
+    </ul>
+
+    <p>The quality of the review improved, even though the AI received less information.</p>
+
+    <p>That completely changed the way I think about AI-assisted software.</p>
+
+    <p>The goal isn't to maximize context.</p>
+
+    <p>The goal is to maximize relevance.</p>
+
+    <p>Every unnecessary file increases ambiguity.</p>
+
+    <p>Every carefully selected artifact increases signal.</p>
+
+    <p>Good AI systems are not built by overwhelming the model with information.</p>
+
+    <p>They are built by surrounding the model with deterministic software that performs the filtering, organization, and evidence gathering before the first token is generated.</p>
+
+    <p>Looking back, candidate selection wasn't just an optimization for ProjectMind.</p>
+
+    <p>It became the architectural boundary between deterministic computation and probabilistic reasoning.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Intelligence isn't always about having more information. Quite often, it's about knowing what information deserves attention. The best AI systems don't think with everything they know. They think with the right things.</p>
+  `
+},
+{
+  id: 32,
+  title: "The Best AI Pipeline Starts Before the AI.",
+  category: "AI Systems",
+  readTime: "3 min read",
+  date: "Jul 25, 2026",
+  excerpt: "Early versions of ProjectMind sent repository information directly to an LLM. Over time, I realized the real engineering challenge wasn't improving the prompt. It was everything that happened before the prompt existed.",
+
+  tags: [
+    "ai",
+    "system-design",
+    "software-engineering",
+    "architecture",
+    "projectmind"
+  ],
+
+  content: `
+    <p>When people think about AI systems, they usually imagine the model sitting at the center of everything.</p>
+
+    <p>Building ProjectMind gradually convinced me of the opposite.</p>
+
+    <p>The most important engineering often happens before the model is ever called.</p>
+
+    <p>At first, my instinct was straightforward.</p>
+
+    <p>Collect repository information.</p>
+
+    <p>Build a prompt.</p>
+
+    <p>Ask the LLM to figure things out.</p>
+
+    <p>It worked, but not consistently.</p>
+
+    <p>Every real-world repository exposed another weakness.</p>
+
+    <p>Some prompts contained irrelevant files.</p>
+
+    <p>Some lacked important architectural context.</p>
+
+    <p>Some encouraged the model to make assumptions that deterministic software could have verified instantly.</p>
+
+    <p>Eventually the architecture changed.</p>
+
+    <p>Instead of relying on the model to discover everything, ProjectMind introduced a deterministic pipeline that prepared the reasoning environment first.</p>
+
+    <ul>
+      <li>Read the Git diff.</li>
+      <li>Scan the workspace.</li>
+      <li>Extract meaningful metadata.</li>
+      <li>Identify review candidates.</li>
+      <li>Validate the available evidence.</li>
+      <li>Only then ask the LLM to reason.</li>
+    </ul>
+
+    <p>The model became more reliable without becoming more capable.</p>
+
+    <p>Nothing about the LLM changed.</p>
+
+    <p>The software around it did.</p>
+
+    <p>That experience reshaped how I think about AI engineering.</p>
+
+    <p>An LLM shouldn't replace software.</p>
+
+    <p>It should build on top of software that has already reduced ambiguity as much as possible.</p>
+
+    <p>The cleaner the deterministic pipeline becomes, the smaller the burden placed on probabilistic reasoning.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Good AI systems don't begin with a prompt. They begin with software that carefully prepares the problem. By the time an LLM starts reasoning, most of the uncertainty should already be gone.</p>
+  `
+},
+{
+  id: 33,
+  title: "A Git Diff Shows What Changed. Engineers Need to Know What Else Might Have Changed.",
+  category: "Software Engineering",
+  readTime: "3 min read",
+  date: "Jul 26, 2026",
+  excerpt: "A Git diff tells us what was modified. It rarely tells us what assumptions those modifications silently invalidate. Building ProjectMind made me appreciate that difference.",
+
+  tags: [
+    "software-engineering",
+    "git",
+    "system-design",
+    "architecture",
+    "projectmind"
+  ],
+
+  content: `
+    <p>A Git diff is one of the most useful tools developers have.</p>
+
+    <p>It tells us exactly which lines were added, removed, or modified.</p>
+
+    <p>But while building ProjectMind, I realized it leaves an important question unanswered.</p>
+
+    <p><em>What else deserves my attention because of this change?</em></p>
+
+    <p>Changing a configuration value might affect deployment.</p>
+
+    <p>Updating a data model might impact seed scripts, tests, or API contracts.</p>
+
+    <p>Renaming an environment variable could quietly invalidate documentation or infrastructure.</p>
+
+    <p>None of those consequences appear in the diff itself.</p>
+
+    <p>They're architectural consequences, not textual ones.</p>
+
+    <p>That's the gap ProjectMind tries to reduce.</p>
+
+    <p>Instead of asking, <em>"What changed?"</em>, it asks a different question.</p>
+
+    <p><em>"Given this change, what should another engineer consciously review before assuming everything is still aligned?"</em></p>
+
+    <p>I found that surprisingly powerful.</p>
+
+    <p>Most production issues don't happen because someone forgot to write code.</p>
+
+    <p>They happen because one assumption changed while another part of the system quietly continued believing the old one.</p>
+
+    <p>Good engineering isn't only about implementing changes.</p>
+
+    <p>It's also about recognizing the invisible boundaries those changes cross.</p>
+
+    <p>A code review shouldn't stop at the modified files.</p>
+
+    <p>Sometimes the most important review happens in files that were never edited at all.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>A Git diff explains what changed. Engineering judgment begins by asking what those changes might silently affect. The difference between those two questions is often where reliability is won or lost.</p>
+  `
+},
+{
+  id: 34,
+  title: "AI Should Produce Review Hypotheses, Not Engineering Decisions.",
+  category: "AI Systems",
+  readTime: "4 min read",
+  date: "Jul 27, 2026",
+  excerpt: "While building ProjectMind, I stopped expecting AI to make engineering decisions. Instead, I wanted it to surface thoughtful review hypotheses that help engineers think more carefully.",
+
+  tags: [
+    "ai",
+    "software-engineering",
+    "code-review",
+    "architecture",
+    "projectmind"
+  ],
+
+  content: `
+    <p>One question kept coming back while I was designing ProjectMind.</p>
+
+    <p>What exactly should the AI be responsible for?</p>
+
+    <p>My first instinct was the obvious one.</p>
+
+    <p>Let it identify problems.</p>
+
+    <p>Suggest fixes.</p>
+
+    <p>Generate patches.</p>
+
+    <p>The more I experimented, the less comfortable I became with that idea.</p>
+
+    <p>Engineering decisions rarely exist in isolation.</p>
+
+    <p>A configuration that looks incorrect may be intentional.</p>
+
+    <p>A seemingly outdated document may describe a deployment environment that's different from local development.</p>
+
+    <p>A missing update might actually be the right decision.</p>
+
+    <p>Software cannot always determine intent.</p>
+
+    <p>Humans still provide that context.</p>
+
+    <p>That's when ProjectMind changed direction.</p>
+
+    <p>Instead of trying to answer <em>"What should be changed?"</em>, it began answering a different question.</p>
+
+    <p><em>"What deserves another look before this change is considered complete?"</em></p>
+
+    <p>That small shift changed everything.</p>
+
+    <p>The AI no longer acted like an automated reviewer handing out verdicts.</p>
+
+    <p>It became a collaborator that highlighted assumptions worth verifying.</p>
+
+    <p>Every review obligation became a hypothesis.</p>
+
+    <p>Not a fact.</p>
+
+    <p>Not an instruction.</p>
+
+    <p>Not a command.</p>
+
+    <p>Just a well-supported reason to pause and think.</p>
+
+    <p>I think that's a healthier role for AI in software engineering.</p>
+
+    <p>Developers shouldn't outsource judgment.</p>
+
+    <p>They should augment it.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>The most valuable AI tools don't replace engineering judgment. They strengthen it. A thoughtful review hypothesis is often more useful than an automated decision because it keeps the human responsible for understanding the system.</p>
+  `
+},
+{
+  id: 35,
+  title: "Validation Makes AI Feel Smarter Than Better Models Do.",
+  category: "AI Engineering",
+  readTime: "4 min read",
+  date: "Jul 28, 2026",
+  excerpt: "I spent far more time validating AI outputs than improving prompts. Surprisingly, those validation layers made the system feel significantly more intelligent.",
+
+  tags: [
+    "ai",
+    "engineering",
+    "reliability",
+    "software-design",
+    "projectmind"
+  ],
+
+  content: `
+    <p>When AI produces a convincing answer, it's easy to assume the model deserves all the credit.</p>
+
+    <p>Building ProjectMind made me question that assumption.</p>
+
+    <p>Some of the biggest improvements didn't come from changing the model at all.</p>
+
+    <p>They came from validating its output.</p>
+
+    <p>Early versions occasionally produced reasonable-looking review obligations that referenced files which didn't exist, duplicated the same concern twice, or stretched beyond the evidence available.</p>
+
+    <p>None of those mistakes were dramatic.</p>
+
+    <p>They were simply enough to make me trust the system a little less.</p>
+
+    <p>Instead of trying to write a better prompt every time, I started treating the model like any other software dependency.</p>
+
+    <ul>
+      <li>Validate the response structure.</li>
+      <li>Reject malformed outputs.</li>
+      <li>Verify every referenced file actually exists.</li>
+      <li>Discard unsupported review obligations.</li>
+      <li>Fall back gracefully when something goes wrong.</li>
+    </ul>
+
+    <p>Those additions weren't glamorous.</p>
+
+    <p>They didn't make for impressive demos.</p>
+
+    <p>But they dramatically changed how trustworthy the tool felt.</p>
+
+    <p>That's when I realized an important distinction.</p>
+
+    <p>Users don't experience the intelligence of a model.</p>
+
+    <p>They experience the reliability of the entire system.</p>
+
+    <p>A slightly weaker model wrapped in strong engineering often creates a better product than a powerful model with no safeguards.</p>
+
+    <p>Good AI products aren't built by assuming the model is always right.</p>
+
+    <p>They're built by assuming it will occasionally be wrong and designing the surrounding software accordingly.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Reliability is one of the strongest signals of intelligence. Before searching for a more capable model, it's worth asking whether better validation, better guardrails, and better engineering would solve the problem first.</p>
+  `
+},
+{
+  id: 36,
+  title: "Confidence Should Come From Evidence, Not the Model.",
+  category: "AI Engineering",
+  readTime: "4 min read",
+  date: "Jul 29, 2026",
+  excerpt: "One lesson from ProjectMind surprised me more than any prompt optimization: confidence isn't something an AI should invent. It's something the system should justify.",
+
+  tags: [
+    "ai",
+    "system-design",
+    "software-engineering",
+    "explainability",
+    "projectmind"
+  ],
+
+  content: `
+    <p>Large language models are remarkably confident.</p>
+
+    <p>Sometimes they're also remarkably wrong.</p>
+
+    <p>While building ProjectMind, I realized that simply asking an AI how confident it feels doesn't create trustworthy software.</p>
+
+    <p>Confidence shouldn't be a prediction.</p>
+
+    <p>It should be a consequence of evidence.</p>
+
+    <p>That idea gradually changed how I designed the review pipeline.</p>
+
+    <p>Instead of treating confidence as another field generated by the model, I started asking a different question.</p>
+
+    <p><em>Why should anyone believe this review obligation?</em></p>
+
+    <p>If a configuration file referenced the same environment variable, that was evidence.</p>
+
+    <p>If a deployment file exposed the same application port, that was evidence.</p>
+
+    <p>If a route depended on a modified contract, that was evidence.</p>
+
+    <p>The more independent pieces of deterministic evidence supported a review obligation, the more confidence the system could reasonably assign to it.</p>
+
+    <p>Notice what isn't happening here.</p>
+
+    <p>The AI isn't inventing confidence.</p>
+
+    <p>The software is earning it.</p>
+
+    <p>That distinction feels subtle, but it fundamentally changes how trustworthy the system becomes.</p>
+
+    <p>Instead of saying, <em>"I'm highly confident,"</em> the system can effectively say, <em>"I'm confident because these independent facts point to the same conclusion."</em></p>
+
+    <p>I think explainability begins there.</p>
+
+    <p>Not with beautiful dashboards.</p>
+
+    <p>Not with colorful confidence badges.</p>
+
+    <p>But with the ability to trace every conclusion back to observable evidence.</p>
+
+    <p>That's a principle I'll probably carry into every AI system I build.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Confidence is meaningful only when it can be explained. In trustworthy AI systems, confidence isn't a feeling expressed by the model. It's a conclusion supported by evidence the software can show and humans can verify.</p>
+  `
+},
+{
+  id: 37,
+  title: "Repositories Don't Contain Files. They Contain Responsibilities.",
+  category: "Software Architecture",
+  readTime: "4 min read",
+  date: "Jul 30, 2026",
+  excerpt: "ProjectMind worked well on small repositories until real-world projects exposed an uncomfortable truth. Files aren't the fundamental units of software architecture. Responsibilities are.",
+
+  tags: [
+    "software-architecture",
+    "system-design",
+    "repository-intelligence",
+    "engineering",
+    "projectmind"
+  ],
+
+  content: `
+    <p>One of the biggest assumptions I made while building ProjectMind seemed perfectly reasonable.</p>
+
+    <p>If I could understand the important files, I could understand the project.</p>
+
+    <p>Real repositories disagreed.</p>
+
+    <p>The more projects I analyzed, the more obvious the problem became.</p>
+
+    <p>Files are simply containers.</p>
+
+    <p>They are organized for developers.</p>
+
+    <p>Software, however, behaves according to responsibilities.</p>
+
+    <p>A configuration value might be defined in one file, consumed in another, exposed through infrastructure, documented somewhere else, and validated by a completely different test suite.</p>
+
+    <p>No individual file owns that behavior.</p>
+
+    <p>The responsibility exists across all of them.</p>
+
+    <p>That realization changed how I started thinking about repository intelligence.</p>
+
+    <p>Instead of asking, <em>"Which files are related?"</em>, I found myself asking a much better question.</p>
+
+    <p><em>"Which responsibilities does this change interact with?"</em></p>
+
+    <p>Configuration.</p>
+
+    <p>Authentication.</p>
+
+    <p>Deployment.</p>
+
+    <p>Persistence.</p>
+
+    <p>API contracts.</p>
+
+    <p>Those are the boundaries that matter.</p>
+
+    <p>Files simply happen to implement them.</p>
+
+    <p>That insight ultimately pushed ProjectMind beyond keyword matching and file heuristics.</p>
+
+    <p>It pointed toward a richer representation of a project where architectural entities and their relationships become first-class concepts.</p>
+
+    <p>I realized repository intelligence isn't about reading files more carefully.</p>
+
+    <p>It's about understanding how responsibilities flow through a system.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Repositories are organized into files for humans, but software evolves through responsibilities. The sooner we model those responsibilities instead of their containers, the closer we get to understanding how a system actually works.</p>
+  `
+},
+{
+  id: 38,
+  title: "Static Analysis Is the Foundation of Trustworthy AI.",
+  category: "Software Architecture",
+  readTime: "4 min read",
+  date: "Jul 31, 2026",
+  excerpt: "The more repositories I tested ProjectMind against, the more I realized something unexpected. The smartest part of the system wasn't the AI. It was the software that discovered facts before the AI ever started reasoning.",
+
+  tags: [
+    "static-analysis",
+    "software-architecture",
+    "ai",
+    "developer-tools",
+    "projectmind"
+  ],
+
+  content: `
+    <p>Early in ProjectMind's development, I expected the language model to do most of the heavy lifting.</p>
+
+    <p>After all, reasoning is what LLMs are exceptionally good at.</p>
+
+    <p>Reality turned out to be more nuanced.</p>
+
+    <p>Every repository contained facts that didn't need intelligence.</p>
+
+    <p>They needed discovery.</p>
+
+    <p>Which files define configuration?</p>
+
+    <p>Which modules expose HTTP routes?</p>
+
+    <p>Where is an environment variable consumed?</p>
+
+    <p>Which service owns a particular responsibility?</p>
+
+    <p>None of those questions require an AI.</p>
+
+    <p>They require deterministic analysis.</p>
+
+    <p>The more facts ProjectMind could extract before involving the model, the more reliable every review became.</p>
+
+    <p>The AI stopped spending its effort searching for information.</p>
+
+    <p>Instead, it spent its effort reasoning about information that had already been verified.</p>
+
+    <p>That distinction completely changed my view of AI-assisted engineering.</p>
+
+    <p>Static analysis isn't competing with AI.</p>
+
+    <p>It's preparing the ground for AI to operate effectively.</p>
+
+    <p>One discovers facts.</p>
+
+    <p>The other interprets them.</p>
+
+    <p>Neither should try to replace the other.</p>
+
+    <p>Looking back, I think the strongest AI systems will increasingly follow this pattern.</p>
+
+    <p>Deterministic software establishes what is true.</p>
+
+    <p>Probabilistic software helps humans understand what those truths imply.</p>
+
+    <p>That division of responsibility feels both practical and trustworthy.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>AI becomes far more reliable when it isn't asked to discover facts that software can compute exactly. Static analysis and language models aren't competing approaches. Together, they form a stronger system than either could achieve alone.</p>
+  `
+},
+{
+  id: 39,
+  title: "The Best Prompt Is a Software Contract.",
+  category: "AI Engineering",
+  readTime: "4 min read",
+  date: "Aug 1, 2026",
+  excerpt: "ProjectMind became significantly more reliable when I stopped treating prompts as conversations and started treating them as software contracts with strict inputs, outputs, and responsibilities.",
+
+  tags: [
+    "prompt-engineering",
+    "ai",
+    "software-design",
+    "llm",
+    "projectmind"
+  ],
+
+  content: `
+    <p>Like many developers experimenting with LLMs, I initially treated prompts as carefully written instructions.</p>
+
+    <p>If the wording improved, I expected the results to improve as well.</p>
+
+    <p>Sometimes they did.</p>
+
+    <p>Sometimes they didn't.</p>
+
+    <p>The inconsistency wasn't frustrating because the model made mistakes.</p>
+
+    <p>It was frustrating because the system had no clear definition of responsibility.</p>
+
+    <p>Eventually I stopped thinking of prompts as conversations.</p>
+
+    <p>I started thinking of them as software contracts.</p>
+
+    <p>Every prompt in ProjectMind gradually evolved to define four things explicitly.</p>
+
+    <ul>
+      <li>Exactly what information the model receives.</li>
+      <li>Exactly what the model is expected to produce.</li>
+      <li>Exactly what the model must never do.</li>
+      <li>Exactly how invalid responses will be handled.</li>
+    </ul>
+
+    <p>That change simplified everything.</p>
+
+    <p>The prompt stopped being an attempt to persuade the model.</p>
+
+    <p>It became an interface between deterministic software and probabilistic reasoning.</p>
+
+    <p>The surrounding software prepared verified facts.</p>
+
+    <p>The prompt defined the reasoning task.</p>
+
+    <p>The validator enforced the output contract.</p>
+
+    <p>Each component owned a clear responsibility.</p>
+
+    <p>What surprised me most was that the prompt itself became shorter over time.</p>
+
+    <p>As the software around it grew stronger, the prompt no longer needed to compensate for missing structure.</p>
+
+    <p>That's probably the biggest lesson I took away from building ProjectMind.</p>
+
+    <p>Reliable AI systems aren't held together by clever wording.</p>
+
+    <p>They're held together by well-defined boundaries between software and the model.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Good prompts are less like conversations and more like APIs. They define clear responsibilities, explicit constraints, predictable outputs, and well-understood failure modes. The more a prompt behaves like a software contract, the more dependable the entire AI system becomes.</p>
+  `
+},
+{
+  id: 40,
+  title: "ProjectMind Didn't Teach Me Code Review. It Taught Me How Engineers Understand Systems.",
+  category: "Engineering Mindset",
+  readTime: "4 min read",
+  date: "Aug 2, 2026",
+  excerpt: "I began ProjectMind trying to automate code review. I finished it realizing that experienced engineers don't really review code. They review assumptions, relationships, and consequences.",
+
+  tags: [
+    "engineering",
+    "reflection",
+    "software-architecture",
+    "career-growth",
+    "projectmind"
+  ],
+
+  content: `
+    <p>When I started ProjectMind, I thought I was building an AI-assisted code review tool.</p>
+
+    <p>That description felt accurate for quite a while.</p>
+
+    <p>Read a Git diff.</p>
+
+    <p>Analyze a repository.</p>
+
+    <p>Generate review suggestions.</p>
+
+    <p>Simple enough.</p>
+
+    <p>But every real repository slowly challenged that mental model.</p>
+
+    <p>I noticed that experienced engineers rarely spend their attention on the changed lines themselves.</p>
+
+    <p>They're usually asking different questions.</p>
+
+    <ul>
+      <li>What assumptions changed?</li>
+      <li>Who else depends on this?</li>
+      <li>Which contracts might now be out of sync?</li>
+      <li>What should someone verify before calling this complete?</li>
+      <li>What consequences haven't we thought about yet?</li>
+    </ul>
+
+    <p>None of those questions are about syntax.</p>
+
+    <p>They're about understanding a system.</p>
+
+    <p>Somewhere along the journey, ProjectMind stopped feeling like an AI project.</p>
+
+    <p>It became an exploration of how software projects carry knowledge.</p>
+
+    <p>How responsibilities spread across files.</p>
+
+    <p>How assumptions travel between teams.</p>
+
+    <p>How small decisions create effects far beyond the code that changed.</p>
+
+    <p>The prototype eventually worked.</p>
+
+    <p>But the prototype wasn't the biggest outcome.</p>
+
+    <p>The biggest outcome was realizing that engineering is less about producing software and more about preserving shared understanding as systems continue to evolve.</p>
+
+    <p>I still enjoy building features.</p>
+
+    <p>But today I find myself even more interested in the invisible structures that make those features understandable, maintainable, and trustworthy long after they're merged.</p>
+
+    <p>ProjectMind may have started as a developer tool.</p>
+
+    <p>For me, it ended as a lesson in how engineers think.</p>
+
+    <p><strong>Takeaway</strong></p>
+
+    <p>Good engineers don't just read code. They reconstruct the system behind the code. Building ProjectMind reminded me that software is ultimately a network of shared understanding, and engineering is the continuous effort to keep that understanding aligned as everything else changes.</p>
+  `
 }
 ];
 
 class ArchiveController {
   constructor() {
-    this.notes = NOTEBOOK_DATA;
-    this.activeCategory = "ALL";
+    // Map notes to their respective projects dynamically based on ID ranges
+    this.notes = NOTEBOOK_DATA.map(note => {
+      let project = "General Lessons";
+      if (note.id >= 11 && note.id <= 20) project = "WorkLedger";
+      else if (note.id >= 21 && note.id <= 30) project = "DevLens";
+      else if (note.id >= 31 && note.id <= 40) project = "ProjectMind";
+      return { ...note, project };
+    });
+
+    this.activeProject = "ALL";
+    this.activeTopic = "ALL";
     this.searchQuery = "";
+    this.showAllTopics = false;
     
     this.searchInput = document.getElementById("archive-search");
-    this.tabsContainer = document.getElementById("filter-tabs");
+    this.projectTabsContainer = document.getElementById("project-tabs");
+    this.topicTabsContainer = document.getElementById("topic-tabs");
     this.notesContainer = document.getElementById("notes-container");
     
     if (!this.notesContainer) return;
@@ -1260,7 +1967,8 @@ class ArchiveController {
   }
 
   init() {
-    this.renderTabs();
+    this.renderProjects();
+    this.renderTopics();
     this.renderNotes();
     this.registerEvents();
   }
@@ -1274,39 +1982,91 @@ class ArchiveController {
     }
   }
 
-  renderTabs() {
-    if (!this.tabsContainer) return;
-    
-    // Count items per category
-    const counts = { ALL: this.notes.length };
-    this.notes.forEach(note => {
-      counts[note.category] = (counts[note.category] || 0) + 1;
-    });
+  renderProjects() {
+    if (!this.projectTabsContainer) return;
 
-    const categories = ["ALL", ...new Set(this.notes.map(n => n.category))];
+    const projects = ["ALL", "DevLens", "WorkLedger", "ProjectMind", "General Lessons"];
     
-    this.tabsContainer.innerHTML = categories.map(cat => {
-      const activeClass = cat === this.activeCategory ? "active" : "";
+    this.projectTabsContainer.innerHTML = projects.map(proj => {
+      const activeClass = (this.activeProject === proj && this.activeTopic === "ALL") ? "active" : "";
       return `
-        <button class="filter-tab ${activeClass}" data-category="${cat}">
-          <span>${cat}</span>
-          <span class="filter-count">${counts[cat] || 0}</span>
+        <button class="filter-tab ${activeClass}" data-project="${proj}">
+          <span>${proj}</span>
         </button>
       `;
     }).join("");
 
     // Attach click events
-    this.tabsContainer.querySelectorAll(".filter-tab").forEach(tab => {
+    this.projectTabsContainer.querySelectorAll(".filter-tab").forEach(tab => {
       tab.addEventListener("click", () => {
-        this.activeCategory = tab.dataset.category;
+        this.activeProject = tab.dataset.project;
+        this.activeTopic = "ALL";
         
-        // Update styling
-        this.tabsContainer.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
-        tab.classList.add("active");
-        
+        this.renderProjects();
+        this.renderTopics();
         this.renderNotes();
       });
     });
+  }
+
+  renderTopics() {
+    if (!this.topicTabsContainer) return;
+
+    // Count notes per topic/category
+    const topicCounts = {};
+    this.notes.forEach(note => {
+      topicCounts[note.category] = (topicCounts[note.category] || 0) + 1;
+    });
+
+    // Sort categories by frequency descending
+    const sortedTopics = Object.keys(topicCounts).sort((a, b) => topicCounts[b] - topicCounts[a]);
+
+    const limit = 7;
+    const hasMore = sortedTopics.length > limit;
+    const displayTopics = (hasMore && !this.showAllTopics) 
+      ? sortedTopics.slice(0, limit) 
+      : sortedTopics;
+
+    let html = displayTopics.map(topic => {
+      const activeClass = (this.activeTopic === topic && this.activeProject === "ALL") ? "active" : "";
+      return `
+        <button class="filter-tab ${activeClass}" data-topic="${topic}">
+          <span>${topic}</span>
+        </button>
+      `;
+    }).join("");
+
+    if (hasMore) {
+      const toggleText = this.showAllTopics ? "Show Less..." : "More...";
+      html += `
+        <button class="filter-tab toggle-topics-btn" style="color: var(--text-muted); font-style: italic; justify-content: center; border-left: none; padding-left: 0.85rem;">
+          <span>${toggleText}</span>
+        </button>
+      `;
+    }
+
+    this.topicTabsContainer.innerHTML = html;
+
+    // Attach click events to topic tabs
+    this.topicTabsContainer.querySelectorAll(".filter-tab:not(.toggle-topics-btn)").forEach(tab => {
+      tab.addEventListener("click", () => {
+        this.activeTopic = tab.dataset.topic;
+        this.activeProject = "ALL";
+        
+        this.renderProjects();
+        this.renderTopics();
+        this.renderNotes();
+      });
+    });
+
+    // Attach click event to the toggle button
+    const toggleBtn = this.topicTabsContainer.querySelector(".toggle-topics-btn");
+    if (toggleBtn) {
+      toggleBtn.addEventListener("click", () => {
+        this.showAllTopics = !this.showAllTopics;
+        this.renderTopics();
+      });
+    }
   }
 
   updateStats(visibleCount) {
@@ -1316,24 +2076,27 @@ class ArchiveController {
       <div class="stats-cli-title">$ archive --stats</div>
       <div class="stats-cli-line"><span class="stats-cli-key">total_notes:</span><span class="stats-cli-val">${this.notes.length}</span></div>
       <div class="stats-cli-line"><span class="stats-cli-key">visible:</span><span class="stats-cli-val">${visibleCount}</span></div>
-      <div class="stats-cli-line"><span class="stats-cli-key">category:</span><span class="stats-cli-val">${this.activeCategory}</span></div>
+      <div class="stats-cli-line"><span class="stats-cli-key">project:</span><span class="stats-cli-val">${this.activeProject}</span></div>
+      <div class="stats-cli-line"><span class="stats-cli-key">topic:</span><span class="stats-cli-val">${this.activeTopic}</span></div>
     `;
   }
 
   renderNotes() {
     if (!this.notesContainer) return;
 
-    // Filter notes based on active Category and Search Query
+    // Filter notes based on active filters and search query
     const filteredNotes = this.notes.filter(note => {
-      const matchesCategory = this.activeCategory === "ALL" || note.category.toUpperCase() === this.activeCategory.toUpperCase();
+      const matchesProject = this.activeProject === "ALL" || note.project === this.activeProject;
+      const matchesTopic = this.activeTopic === "ALL" || note.category.toUpperCase() === this.activeTopic.toUpperCase();
       
       const matchesSearch = 
         note.title.toLowerCase().includes(this.searchQuery) ||
         note.excerpt.toLowerCase().includes(this.searchQuery) ||
         note.tags.some(tag => tag.toLowerCase().includes(this.searchQuery)) ||
-        note.category.toLowerCase().includes(this.searchQuery);
+        note.category.toLowerCase().includes(this.searchQuery) ||
+        note.project.toLowerCase().includes(this.searchQuery);
         
-      return matchesCategory && matchesSearch;
+      return matchesProject && matchesTopic && matchesSearch;
     });
 
     this.updateStats(filteredNotes.length);
@@ -1350,12 +2113,16 @@ class ArchiveController {
     this.notesContainer.innerHTML = filteredNotes.map(note => {
       const tagHTML = note.tags.map(tag => `<span class="tag">#${tag}</span>`).join("");
       const catSlug = note.category.toLowerCase().replace(/\s+/g, "_");
+      const projClass = note.project.toLowerCase().replace(/\s+/g, "-");
       
       return `
         <article class="glass-card note-card reveal" data-note-id="${note.id}">
           <div class="glass-card-content">
             <div class="note-meta">
-              <span class="note-category">${note.category}</span>
+              <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                <span class="note-project-badge ${projClass}">${note.project}</span>
+                <span class="note-category">${note.category}</span>
+              </div>
               <span>${note.readTime} &bull; ${note.date}</span>
             </div>
             <h3 class="note-title">${note.title}</h3>
@@ -1391,7 +2158,6 @@ class ArchiveController {
     // Expand/Collapse Logic
     this.notesContainer.querySelectorAll(".note-card").forEach(card => {
       card.addEventListener("click", (e) => {
-        // Prevent expansion if clicking on individual links/buttons inside the note body
         if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a') || e.target.closest('code')) {
           return;
         }
@@ -1406,8 +2172,6 @@ class ArchiveController {
         // Toggle clicked card
         if (!isCurrentlyExpanded) {
           card.classList.add("expanded");
-          
-          // Smooth scroll to card
           card.scrollIntoView({ behavior: "smooth", block: "nearest" });
         }
       });
@@ -1415,21 +2179,21 @@ class ArchiveController {
   }
 
   openNote(id) {
-    // 1. Reset category filter to ALL so the note is visible
-    this.activeCategory = "ALL";
-    this.renderTabs();
+    const note = this.notes.find(n => n.id === id);
+    if (!note) return;
+
+    this.activeProject = note.project;
+    this.activeTopic = "ALL";
+    this.renderProjects();
+    this.renderTopics();
     this.renderNotes();
     
-    // 2. Find the card element
     const card = this.notesContainer.querySelector(`.note-card[data-note-id="${id}"]`);
     if (card) {
-      // Collapse all others
       this.notesContainer.querySelectorAll(".note-card").forEach(c => {
         c.classList.remove("expanded");
       });
-      // Expand this one
       card.classList.add("expanded");
-      // Scroll to it
       card.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }

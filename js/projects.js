@@ -17,6 +17,7 @@ import {
   computeStats,
   computeStatusCounts,
 } from "./projects-data.js";
+import { NOTEBOOK_DATA } from "./archive.js";
 
 // ─── State ────────────────────────────────────────────────────────────────────
 const state = {
@@ -83,6 +84,7 @@ function renderStats() {
     { num: s.developerTools, label: "Developer Tools"   },
     { num: s.githubApps,     label: "GitHub Apps"       },
     { num: s.research,       label: "Research"          },
+    { num: NOTEBOOK_DATA.length, label: "Notebook Logs" },
   ].filter(p => p.num > 0);
 
   statsRowEl.innerHTML = pills

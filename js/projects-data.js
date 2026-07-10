@@ -144,8 +144,8 @@ export const PROJECTS = [
     status: "active",
     difficulty: "intermediate",
     year: 2026,
-    featured: true,
-    category: "Flagship",
+    featured: false,
+    category: "Web Applications",
     description:
       "A personal digital identity platform and engineering learning archive. Built intentionally using pure vanilla HTML, CSS variables, and zero heavy abstraction frameworks to ensure ultimate transparency, performance, and diagnostic clarity.",
     completionDate: null,
@@ -765,6 +765,60 @@ export const PROJECTS = [
   image: null,
   openSource: true,
   liveDeployment: false,
+},
+{
+  "id": 16,
+  "slug": "workledger",
+  "title": "WorkLedger",
+  "status": "in-production",
+  "difficulty": "advanced",
+  "year": 2026,
+  "featured": true,
+  "category": "Flagship",
+
+  "description": "A production-grade intern and project management platform engineered for modern software teams. WorkLedger combines PostgreSQL, React, Express, repository-service architecture, observability tooling, performance optimization, and role-based workflows to manage contributors, milestones, assignments, reviews, analytics, and engineering operations through a clean, scalable architecture.",
+
+  "completionDate": null,
+  "estimatedBuildTime": "Ongoing",
+  "projectScale": "Large",
+  "projectType": "Engineering Management Platform",
+
+  "metrics": [
+    "PostgreSQL",
+    "Neon Database",
+    "Vercel Deployment",
+    "Role-Based Access",
+    "Repository Pattern",
+    "Performance Audit"
+  ],
+
+  "technologies": [
+    "react",
+    "typescript",
+    "vite",
+    "express",
+    "postgresql",
+    "neon",
+    "drizzle",
+    "nodejs",
+    "vercel"
+  ],
+
+  "tags": [
+    "featured",
+    "full-stack",
+    "backend",
+    "frontend",
+    "open-source",
+    "enterprise"
+  ],
+
+  "github": "https://github.com/iuttkarshh0409/WorkLedger",
+  "live": "https://work-ledger-eight.vercel.app",
+  "caseStudy": null,
+  "image": null,
+  "openSource": true,
+  "liveDeployment": true
 }
 ];
 
